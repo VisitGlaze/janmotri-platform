@@ -1,0 +1,752 @@
+@import "../../../styles/index.scss";
+
+$c-gold: #f50b0b; // Local color override
+$c-charcoal: #111827;
+$text-light: #000000;
+$text-white: #000000;
+$border-light: rgba(255, 255, 255, 0.08);
+
+.ft-root {
+  background-color: #ffffff;
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+
+  &.ft-no-insta {
+    .ft-wave {
+      background-color: #ffffff;
+    }
+  }
+}
+
+// ── Instagram Section ──
+.ft-insta-section {
+  background: #f6f1ea; // Smooth Light Cream
+  padding: 80px 0 50px 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 80px;
+    left: -120px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(245, 158, 11, 0.06);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -100px;
+    bottom: 60px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: rgba(255, 204, 0, 0.08);
+  }
+}
+
+.ft-insta-header {
+  max-width: 1320px;
+  margin: 0 auto 40px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
+
+.ft-insta-title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  color: #111111;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.5px;
+
+  &::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: $c-gold;
+    display: block;
+    margin-top: 10px;
+    border-radius: 4px;
+
+    @media (max-width: 768px) {
+      margin: 10px auto 0;
+    }
+  }
+}
+
+.ft-insta-handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #4a423a;
+  font-size: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    background: $c-gold;
+    color: #ffffff;
+    border-color: $c-gold;
+    box-shadow: 0 8px 20px rgba($c-gold, 0.25);
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// Swiper Carousel container
+.ft-insta-carousel-wrap {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+
+  // Premium Custom Swiper Navigation Buttons
+  .ft-insta-nav-btn,
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+    outline: none;
+
+    &::after {
+      display: none !important;
+      content: "" !important;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.25s ease, stroke 0.25s ease;
+    }
+
+    &:hover {
+      background: $c-gold;
+      border-color: $c-gold;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba($c-gold, 0.35);
+    }
+
+    &:active {
+      transform: translateY(-50%) scale(0.94);
+    }
+
+    @media (max-width: 768px) {
+      display: none; // Hide arrows on small screens for clean touch swipe
+    }
+  }
+
+  .ft-insta-prev,
+  .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    transform: translateY(-50%);
+
+    &:hover {
+      transform: translateY(-50%) scale(1.08);
+
+      svg {
+        transform: translateX(-2px);
+      }
+    }
+  }
+
+  .ft-insta-next,
+  .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+
+    &:hover {
+      transform: translateY(-50%) scale(1.08);
+
+      svg {
+        transform: translateX(2px);
+      }
+    }
+  }
+}
+
+.ft-insta-swiper {
+  padding: 10px 0 20px;
+}
+
+// Instagram Card item
+.ft-insta-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background: white;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  // Hover Overlay Effect
+  &__hover {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba($c-gold, 0) 20%, rgba($c-charcoal, 0.8) 100%);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+
+    &::before {
+      content: "📸";
+      font-size: 24px;
+      transform: translateY(10px);
+      transition: transform 0.4s ease;
+    }
+
+    &::after {
+      content: "View on Instagram";
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transform: translateY(10px);
+      margin-top: 8px;
+      transition: transform 0.4s ease;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 36px rgba(245, 158, 11, 0.15);
+
+    img {
+      transform: scale(1.08);
+    }
+
+    .ft-insta-card__hover {
+      opacity: 1;
+
+      &::before,
+      &::after {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// ── Wave Separator ──
+.ft-wave {
+  width: 100%;
+  line-height: 0;
+  background-color: #f6f1ea;
+  margin-bottom: -2px;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100px;
+  }
+}
+
+// ── Main Body (Dark Charcoal Theme) ──
+.ft-body {
+  background: #E7E7E7;
+  color: #4a423a;
+  padding-top: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+// Floating oil droplets background effect
+.oil-drop {
+  position: absolute;
+  background: linear-gradient(135deg, rgba($c-gold, 0.35), rgba($c-red, 0.15));
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg);
+  pointer-events: none;
+  animation: floatDrop 10s infinite linear;
+  z-index: 0;
+
+  &.drop-1 {
+    width: 16px;
+    height: 16px;
+    left: 10%;
+    bottom: -20px;
+    animation-delay: 0s;
+    animation-duration: 9s;
+  }
+
+  &.drop-2 {
+    width: 22px;
+    height: 22px;
+    left: 40%;
+    bottom: -30px;
+    animation-delay: 3s;
+    animation-duration: 13s;
+  }
+
+  &.drop-3 {
+    width: 12px;
+    height: 12px;
+    left: 75%;
+    bottom: -20px;
+    animation-delay: 5s;
+    animation-duration: 8s;
+  }
+
+  &.drop-4 {
+    width: 18px;
+    height: 18px;
+    left: 88%;
+    bottom: -25px;
+    animation-delay: 1.5s;
+    animation-duration: 11s;
+  }
+}
+
+@keyframes floatDrop {
+  0% {
+    transform: translateY(0) rotate(45deg) scale(0.6);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.6;
+  }
+
+  80% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(-400px) rotate(405deg) scale(1);
+    opacity: 0;
+  }
+}
+
+// ── Grid Layout ──
+.ft-grid {
+  display: grid;
+  //grid-template-columns: 1.25fr 0.8fr 1.6fr 0.8fr;
+  grid-template-columns: 1.1fr 1fr 1fr 1.6fr;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px 40px 20px 40px;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 24px;
+    padding: 30px 24px;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+}
+
+// ── Columns ──
+.ft-col {
+  padding: 10px 24px 20px 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 10px 0;
+    border-right: none !important;
+  }
+
+  @media (max-width: 640px) {
+    align-items: center;
+  }
+
+  &__heading {
+    color: #0c111c;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+    width: 100%;
+  }
+}
+
+// ── Links ──
+$red-brand: $c-brand-red;
+$text-muted: #000000;
+
+.ft-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 12px;
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: $text-muted;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+      // લિંકની નીચે આવતી પ્રીમિયમ અંડરલાઇન (શરૂઆતમાં છુપાયેલી)
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $red-brand;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      // હોવર ઇફેક્ટ: લખાણ લાલ થશે અને લાઇન ડાબેથી જમણે ખુલશે
+      &:hover {
+        color: $red-brand;
+
+        &::after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
+      }
+    }
+  }
+}
+
+// ── Contact Card Block ──
+$red-brand: $c-brand-red; // જન્મોત્રી બ્રાન્ડ લાલ કલર
+$text-dark: #222222; // ડાર્ક લખાણ કલર
+
+.ft-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    cursor: pointer;
+
+    // ── હોવર ઇફેક્ટ: જ્યારે આખા બ્લોક પર માઉસ આવે ત્યારે ──
+    &:hover {
+      .ft-contact__icon {
+        color: $red-brand;
+        transform: translateY(-4px) scale(1.1); // આઇકોન ઉપર જશે અને થોડો મોટો થશે
+        filter: drop-shadow(0 6px 12px rgba($red-brand, 0.2));
+      }
+
+      .ft-contact__label {
+        color: $red-brand;
+        transform: translateX(3px); // લેબલ સેજ જમણી બાજુ ખસશે
+      }
+
+      .ft-contact__val {
+        color: $red-brand; // લખાણ લાલ થઈ જશે
+      }
+    }
+  }
+
+  // આઇકોન માટેનું પ્રીમિયમ ટ્રાન્ઝિશન
+  &__icon {
+    color: $red-brand; // ઇમેજ મુજબ આઇકોન પહેલેથી લાલ જ રહેશે
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 4px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+      filter 0.3s ease;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // CALL US, EMAIL, ADDRESS લેબલ માટે
+  &__label {
+    display: block;
+    font-size: 14px;
+    font-weight: 800; // ઇમેજ મુજબ હેડિંગ બોલ્ડ રહેશે
+    color: $text-dark;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  // ફોન નંબર, ઇમેઇલ આઇડી, અને એડ્રેસ ટેક્સ્ટ માટે
+  &__val {
+    display: inline-block;
+    color: $text-dark;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+  }
+}
+
+// ── Brand Info Col ──
+.ft-col--brand {
+  .ft-logo {
+    max-height: 80px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+
+  .ft-brand-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: $text-white;
+    margin: 0 0 24px 0;
+  }
+
+  .ft-badges {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: rgba(131, 27, 27, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: fit-content;
+
+    .ft-badge {
+      max-height: 24px;
+      object-fit: contain;
+    }
+
+    .ft-divider {
+      width: 1px;
+      height: 16px;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+}
+
+// ── Bottom Bar ──
+.ft-bottom-wrapper {
+  max-width: 1320px;
+  margin: 20px auto 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
+}
+
+.ft-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .ft-copy {
+    font-size: 13px;
+    color: $text-light;
+    margin: 0;
+  }
+
+  .ft-social {
+    display: flex;
+    gap: 10px;
+
+    &__btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(198, 12, 12, 0.859);
+      color: #f50b0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 24px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #ffffff;
+        color: $c-charcoal;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba($c-gold, 0.25);
+        border-color: #ffffff;
+      }
+    }
+  }
+}
+
+// ── Footer Marquee Section ──
+.ft-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #E7E7E7;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 20px 0;
+}
+
+.ft-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: max-content;
+  animation: marquee-spin 25s linear infinite;
+}
+
+.ft-marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-shrink: 0;
+
+  img {
+    width: 100px;
+    height: auto;
+  }
+
+  span {
+    font-size: clamp(32px, 5vw, 60px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    line-height: 1;
+    color: rgb(0, 0, 0);
+    user-select: none;
+  }
+}
+
+@keyframes marquee-spin {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ── Reveal support ──
+.ft-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--rd, 0s);
+
+  &.ft-reveal,
+  &.ft-insta-section,
+  .ft-col,
+  .ft-bottom {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

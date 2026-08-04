@@ -1,0 +1,137 @@
+@import "../../../components/shared/shared.scss";
+
+$rev-shadow: 0 15px 45px rgba(0, 0, 0, 0.03);
+$rev-shadow-hover: 0 20px 55px rgba(236, 28, 36, 0.06);
+$rev-border-radius: 24px;
+$rev-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+.testimonials-grid-section {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background-color: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+
+  .grid-section-eyebrow {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #C29A38;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+
+  .fans-grid-title {
+    font-size: clamp(26px, 3.5vw, 40px);
+    color: $c-red;
+    font-weight: 800;
+    margin: 0 0 45px 0;
+    text-align: left;
+  }
+
+  .testimonials-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  // Cards redesign
+  .testimonial-grid-card {
+    background: #ffffff;
+    border-radius: $rev-border-radius;
+    padding: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: $rev-shadow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: $rev-transition;
+
+    &:hover {
+      box-shadow: $rev-shadow-hover;
+      border-color: rgba($c-red, 0.1);
+
+      .red-quote-icon {
+        background-color: $c-red;
+        transform: scale(1.08) rotate(-8deg);
+        box-shadow: 0 6px 20px rgba($c-red, 0.35);
+      }
+    }
+
+    .card-stars-wrap {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+
+      .card-star {
+        font-size: 22px;
+        color: #d1d5db;
+
+        &.filled {
+          color: #ffb800; // Premium golden star reviews
+        }
+      }
+    }
+
+    .card-testimonial-text {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #4b5563;
+      font-weight: 500;
+      margin: 0 0 28px 0;
+    }
+
+    // Author details wrap
+    .card-author-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .red-quote-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: #EC1C24;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba($c-red, 0.2);
+        flex-shrink: 0;
+        transition: $rev-transition;
+
+        .quotes-symbol {
+          color: #ffffff;
+          font-size: 36px;
+          line-height: 1;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-weight: 900;
+          margin-top: 17px; // Centering quotation mark
+        }
+      }
+
+      .author-details {
+        display: inline-block;
+
+        .author-name {
+          display: inline;
+          font-size: 15px;
+          font-weight: 800;
+          color: $c-dark;
+          text-transform: capitalize;
+        }
+
+        .author-city {
+          display: inline;
+          font-size: 13.5px;
+          font-weight: 600;
+          color: $c-gray;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}

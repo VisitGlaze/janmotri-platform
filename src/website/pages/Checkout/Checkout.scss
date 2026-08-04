@@ -1,0 +1,913 @@
+@import "../../components/shared/shared.scss";
+
+.checkout-page-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafaf9;
+}
+
+.checkout-main-content {
+  flex: 1;
+  padding-top: calc(var(--navbar-height) + 20px);
+  padding-bottom: 80px;
+
+  @media (max-width: 768px) {
+    padding-top: calc(var(--navbar-height) + 20px);
+    padding-bottom: 60px;
+  }
+}
+
+.checkout-grid-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.checkout-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+// Outline Download Button shared style
+.download-invoice-outline-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: $c-red;
+  border: 1.5px solid rgba($c-red, 0.4);
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 800;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgba($c-red, 0.04);
+    border-color: $c-red;
+    transform: translateY(-1px);
+  }
+}
+
+// ────────────────────────────────────────────────────────────────
+// 🎨 SUCCESS STATE PAGE (Reference Image 2 Redesign)
+// ────────────────────────────────────────────────────────────────
+.checkout-placed-success-layout {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .success-header-panel {
+    text-align: center;
+    margin-bottom: 35px;
+
+    .success-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: $c-dark;
+      margin: 0 0 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .success-subtitle-id {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #6b7280;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .success-main-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    align-items: start;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .success-card-block {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14.5px;
+      font-weight: 800;
+      color: $c-dark;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+
+      .title-icon {
+        font-size: 15px;
+        color: $c-red;
+      }
+    }
+
+    // Success Order Details
+    .order-details-summary-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .item-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .item-img-box {
+          width: 44px;
+          height: 44px;
+          border-radius: 6px;
+          background: #fafafa;
+          border: 1px solid #f3f4f6;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+          }
+        }
+
+        .item-info {
+          flex: 1;
+          min-width: 0;
+
+          .item-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: $c-dark;
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .item-qty-meta {
+            font-size: 11.5px;
+            color: #6b7280;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+          }
+        }
+
+        .item-price {
+          font-size: 13px;
+          font-weight: 800;
+          color: $c-dark;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+      }
+
+      .price-breakdowns {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 13px;
+        margin-top: 8px;
+
+        .pricing-row {
+          display: flex;
+          justify-content: space-between;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+
+          .label { color: #6b7280; font-weight: 600; }
+          .val { color: $c-dark; font-weight: 700; }
+
+          &.total {
+            font-size: 14.5px;
+            border-top: 1.5px dashed #f3f4f6;
+            padding-top: 10px;
+
+            .label { color: $c-dark; font-weight: 800; }
+            .val { color: $c-dark; font-weight: 900; }
+          }
+        }
+      }
+    }
+
+    // Success Address details
+    .address-details-text-success {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #4b5563;
+
+      .recipient {
+        font-size: 14px;
+        font-weight: 800;
+        color: $c-dark;
+        margin-bottom: 6px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+
+      .estimated-delivery-tag {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background-color: #f0fdf4;
+        color: #16a34a;
+        font-size: 11.5px;
+        font-weight: 700;
+        padding: 8px 12px;
+        border-radius: 8px;
+        margin-top: 16px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+    }
+
+    // Success WhatsApp Help panel
+    .whatsapp-help-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .help-desc {
+        font-size: 12.5px;
+        line-height: 1.55;
+        color: #4b5563;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+      }
+
+      .whatsapp-action-btn {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: #fab005; // WhatsApp golden/yellow button
+        color: $c-dark;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 12px;
+        font-size: 13.5px;
+        font-weight: 800;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: #f59f00;
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+
+  // Cancel order banner row
+  .cancel-order-limit-banner {
+    grid-column: 1 / -1;
+    background-color: #fff5f5;
+    border: 1px solid rgba($c-red, 0.1);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .banner-text-wrap {
+      .banner-heading {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14.5px;
+        font-weight: 800;
+        color: #c53030;
+        margin: 0 0 4px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+
+      .banner-desc {
+        font-size: 12.5px;
+        color: #e53e3e;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+      }
+    }
+
+    .trigger-cancel-page-btn {
+      background-color: #ffffff;
+      color: #e53e3e;
+      border: 1.5px solid rgba(#e53e3e, 0.4);
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+
+      &:hover {
+        background-color: #fff5f5;
+        border-color: #e53e3e;
+      }
+    }
+  }
+}
+
+// ────────────────────────────────────────────────────────────────
+// 🎨 CANCELLATION QUESTIONNAIRE PAGE (Reference Image 3 Redesign)
+// ────────────────────────────────────────────────────────────────
+.checkout-cancel-questionnaire-layout {
+  max-width: 650px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.02);
+
+  @media (max-width: 480px) {
+    padding: 32px 20px;
+  }
+
+  .cancel-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: $c-dark;
+    text-align: center;
+    margin: 0 0 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .cancel-subtitle {
+    font-size: 13.5px;
+    color: #6b7280;
+    text-align: center;
+    margin: 0 0 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
+
+  .reasons-radio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+
+    .reason-radio-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      background: #fafafa;
+      border-radius: 12px;
+      border: 1.5px solid #f3f4f6;
+      cursor: pointer;
+      transition: all 0.25s;
+
+      &:hover {
+        background: #f4f4f3;
+        border-color: #e5e7eb;
+      }
+
+      &.active {
+        border-color: $c-red;
+        background: rgba($c-red, 0.01);
+      }
+
+      .custom-radio {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid #d1d5db;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.2s;
+
+        &.checked {
+          border-color: $c-red;
+
+          &::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: $c-red;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .reason-text {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: #4b5563;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+    }
+  }
+
+  .reason-comment-textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1.5px solid #e5e7eb;
+    background-color: #fafafa;
+    font-size: 13.5px;
+    font-family: 'Poppins', sans-serif;
+    color: $c-dark;
+    resize: none;
+    transition: all 0.3s;
+
+    &:focus {
+      border-color: $c-red;
+      background-color: #ffffff;
+      outline: none;
+    }
+  }
+
+  .action-buttons-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 30px;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
+
+    button {
+      flex: 1;
+      height: 48px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .submit-cancel-btn {
+      background-color: $c-red;
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 15px rgba($c-red, 0.2);
+
+      &:hover {
+        background-color: #ee3239;
+        transform: translateY(-1px);
+      }
+    }
+
+    .go-back-btn {
+      background-color: #ffffff;
+      color: #4b5563;
+      border: 1.5px solid #e5e7eb;
+
+      &:hover {
+        background-color: #fafafa;
+        color: $c-red;
+        border-color: rgba($c-red, 0.25);
+      }
+    }
+  }
+}
+
+// ────────────────────────────────────────────────────────────────
+// 🎨 ORDER CANCELLED STATE PAGE (Reference Image 1 Redesign)
+// ────────────────────────────────────────────────────────────────
+.checkout-cancelled-success-layout {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .cancelled-header-panel {
+    text-align: center;
+    margin-bottom: 35px;
+
+    .cancelled-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: $c-red; // Cancelled title in Red color
+      margin: 0 0 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .cancelled-subtitle {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #6b7280;
+      margin: 0 0 10px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+    }
+
+    .cancelled-order-id {
+      font-size: 13px;
+      font-weight: 800;
+      color: $c-dark;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  // Refund tracking progress bar
+  .refund-tracker-panel {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    padding: 24px;
+    margin-bottom: 30px;
+
+    .tracker-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+
+      .tracker-title {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+
+      .tracker-badge-status {
+        font-size: 11px;
+        font-weight: 800;
+        background-color: rgba($c-red, 0.08);
+        color: $c-red;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+    }
+
+    // Cancel refund progress bar line
+    .refund-progress-line-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      padding: 0 10px;
+
+      .progress-line-bg {
+        position: absolute;
+        top: 8px;
+        left: 20px;
+        right: 20px;
+        height: 3px;
+        background-color: #f3f4f6;
+        z-index: 1;
+      }
+
+      .progress-line-fill {
+        position: absolute;
+        top: 8px;
+        left: 20px;
+        width: 50%; // Halfway complete (refund procedure stage)
+        height: 3px;
+        background-color: $c-red;
+        z-index: 2;
+      }
+
+      .progress-step-node {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        z-index: 3;
+        position: relative;
+
+        .node-circle {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 2px solid #e5e7eb;
+          background-color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &.active {
+            border-color: $c-red;
+            background-color: $c-red;
+            box-shadow: 0 0 0 4px rgba($c-red, 0.15);
+
+            &::after {
+              content: '';
+              width: 6px;
+              height: 6px;
+              background-color: #ffffff;
+              border-radius: 50%;
+            }
+          }
+
+          &.completed {
+            border-color: $c-red;
+            background-color: $c-red;
+
+            i {
+              color: #ffffff;
+              font-size: 10px;
+              font-weight: 800;
+            }
+          }
+        }
+
+        .node-label {
+          font-size: 12px;
+          font-weight: 700;
+          color: #9ca3af;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+
+          &.active, &.completed {
+            color: $c-dark;
+          }
+        }
+      }
+    }
+  }
+
+  .cancelled-main-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    align-items: start;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cancelled-card-block {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14.5px;
+      font-weight: 800;
+      color: $c-dark;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+
+      .title-icon {
+        font-size: 15px;
+        color: $c-red;
+      }
+    }
+
+    // Cancelled Item rows
+    .cancelled-items-list-block {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .item-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .item-img-box {
+          width: 54px;
+          height: 54px;
+          border-radius: 8px;
+          background: #fafafa;
+          border: 1px solid #f3f4f6;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+          }
+        }
+
+        .item-info {
+          flex: 1;
+          min-width: 0;
+
+          .item-name {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: $c-dark;
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .item-meta-row-cancel {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 4px;
+
+            .item-qty {
+              font-size: 11.5px;
+              color: #6b7280;
+              font-weight: 600;
+              font-family: 'Poppins', sans-serif;
+              background-color: #f3f4f6;
+              padding: 2px 8px;
+              border-radius: 4px;
+            }
+
+            .buy-again-link {
+              font-size: 12px;
+              font-weight: 800;
+              color: $c-red;
+              text-decoration: underline;
+              font-family: 'Plus Jakarta Sans', sans-serif;
+              cursor: pointer;
+              background: transparent;
+              border: none;
+              padding: 0;
+
+              &:hover {
+                color: #ee3239;
+              }
+            }
+          }
+        }
+
+        .item-price {
+          font-size: 13.5px;
+          font-weight: 800;
+          color: $c-red; // Price in Red
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+      }
+    }
+
+    // Cancelled Payment Breakdown
+    .cancelled-payment-summary-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+
+      .pricing-row {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+
+        .label { color: #6b7280; font-weight: 600; }
+        .val { color: $c-dark; font-weight: 700; }
+
+        &.total {
+          font-size: 15px;
+          border-top: 1.5px dashed #f3f4f6;
+          padding-top: 10px;
+
+          .label { color: $c-dark; font-weight: 800; }
+          .val { color: $c-red; font-weight: 950; font-size: 18px; } // Total price in Red
+        }
+      }
+    }
+
+    // Cancelled address summary text
+    .address-details-text-cancel {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #4b5563;
+
+      .recipient {
+        font-size: 14px;
+        font-weight: 800;
+        color: $c-dark;
+        margin-bottom: 6px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+
+      .phone-wrap {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 8px;
+        color: #9ca3af;
+        font-size: 12px;
+        font-weight: 600;
+
+        i {
+          font-size: 11px;
+        }
+      }
+    }
+
+    // Cancel Reason Text display
+    .cancel-reason-display-text {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #4b5563;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 12px 16px;
+      background: #fafafa;
+      border-radius: 8px;
+      border-left: 3px solid #6b7280;
+    }
+
+    // Refund status progress panel
+    .refund-status-progress-card {
+      background-color: #fff5f5;
+      border: 1px solid rgba($c-red, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+
+      .refund-status-title {
+        font-size: 13.5px;
+        font-weight: 800;
+        color: #c53030;
+        margin: 0 0 6px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+
+      .refund-status-desc {
+        font-size: 12px;
+        line-height: 1.5;
+        color: #e53e3e;
+        margin: 0 0 14px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+      }
+
+      .refund-bottom-status-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .status-txt {
+          font-size: 12px;
+          font-weight: 700;
+          color: #c53030;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .days-badge {
+          background-color: #feb2b2;
+          color: #9b2c2c;
+          font-size: 10px;
+          font-weight: 800;
+          padding: 3px 8px;
+          border-radius: 20px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+      }
+    }
+  }
+}

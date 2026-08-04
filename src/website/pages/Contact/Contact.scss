@@ -1,0 +1,41 @@
+@import "../../components/shared/shared.scss";
+@import "./HeroSection/HeroSection.scss";
+@import "./ContactInfoSection/ContactInfoSection.scss";
+@import "./ContactFormSection/ContactFormSection.scss";
+@import "./MapSection/MapSection.scss";
+@import "./SocialSection/SocialSection.scss";
+
+.contact-page-root {
+  background-color: #ffffff;
+  color: $c-dark;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+}
+
+.contact-main-content {
+  position: relative;
+}
+
+// ── DETAILS AND FORM GRID ──
+.contact-details-form-section {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background-color: #ffffff;
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 50px;
+    align-items: start;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+}

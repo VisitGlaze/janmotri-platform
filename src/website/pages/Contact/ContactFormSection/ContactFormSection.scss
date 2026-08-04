@@ -1,0 +1,56 @@
+@import "../../../components/shared/shared.scss";
+
+.contact-form-card {
+  @extend .card-premium;
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 28px;
+
+    &.flex-two > div {
+      flex: 1;
+    }
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  .form-group {
+    @extend .form-group;
+
+    label {
+      @extend .form-label;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      @extend .form-input;
+    }
+
+    textarea {
+      @extend .form-textarea;
+    }
+  }
+
+  .error-banner {
+    @extend .form-error;
+  }
+
+  .success-banner {
+    @extend .form-success;
+  }
+
+  .send-message-btn {
+    @extend .btn-rect-primary;
+    width: 100%;
+  }
+}

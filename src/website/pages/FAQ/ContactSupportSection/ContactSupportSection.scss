@@ -1,0 +1,126 @@
+@import "../../../components/shared/shared.scss";
+
+$faq-border-radius: 16px;
+$faq-transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+$faq-shadow: 0 10px 35px rgba(0, 0, 0, 0.03);
+
+.faq-cta-section {
+  padding: 40px 0;
+  background-color: #ffffff;
+
+  .faq-cta-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  // CTA Card
+  .faq-cta-card {
+    border-radius: $faq-border-radius;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: $faq-shadow;
+    transition: $faq-transition;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    &.card-message {
+      background: #FFF9E6; // Light yellow
+      border-left: 4px solid $c-red;
+
+      .cta-title {
+        font-size: 20px;
+        font-weight: 800;
+        color: $c-dark;
+        margin: 0 0 8px;
+      }
+
+      .cta-desc {
+        font-size: 14px;
+        line-height: 1.6;
+        color: $c-gray;
+        margin: 0 0 20px;
+      }
+
+      .cta-action-btn {
+        background-color: $c-red;
+        color: #ffffff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 13.5px;
+        font-weight: 800;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba($c-red, 0.2);
+        transition: $faq-transition;
+
+        &:hover {
+          background-color: #ee3239;
+          box-shadow: 0 6px 18px rgba($c-red, 0.3);
+        }
+      }
+    }
+
+    &.card-call {
+      background: #F8F9FA; // Light gray
+      gap: 24px;
+
+      .call-icon-wrap {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background-color: $c-red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba($c-red, 0.2);
+        flex-shrink: 0;
+
+        .call-icon-symbol {
+          color: #ffffff;
+          font-size: 20px;
+        }
+      }
+
+      .call-title {
+        font-size: 18px;
+        font-weight: 800;
+        color: $c-dark;
+        margin: 0 0 2px;
+      }
+
+      .call-status {
+        display: block;
+        font-size: 11px;
+        font-weight: 800;
+        color: #10b981;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+      }
+
+      .call-phone-link {
+        font-size: 16px;
+        font-weight: 800;
+        color: $c-red;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #ee3239;
+        }
+      }
+    }
+  }
+}

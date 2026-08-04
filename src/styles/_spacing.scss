@@ -1,0 +1,17 @@
+// Spacing system tokens
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-xxl: 48px;
+$space-3xl: 64px;
+$space-4xl: 96px;
+
+// Deprecated/Compatibility aliases (to prevent breaks in legacy layout properties)
+$xs: $space-xs;
+$sm: $space-sm;
+$md: $space-md;
+$lg: $space-lg;
+$xl: $space-xl;
+$xxl: $space-xxl;

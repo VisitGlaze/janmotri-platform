@@ -1,0 +1,274 @@
+$c-red: #EC1C24;
+$c-gold: #ffcc00;
+$c-dark: #111111;
+$c-gray: #4b5563;
+$c-gold-premium: #C5A880;
+
+.about-story {
+  position: relative;
+  background: radial-gradient(circle at 10% 20%, #faf8f5 0%, #f3ece0 100%);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+// Decorative organic blurry blobs in the background
+.story-blob-decor {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.12;
+
+  &.blob-1 {
+    width: 350px;
+    height: 350px;
+    background: $c-gold;
+    top: -100px;
+    left: -100px;
+  }
+
+  &.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: $c-red;
+    bottom: -150px;
+    right: -100px;
+  }
+}
+
+.story-header-wrap {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 50px;
+}
+
+.story-grid-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: stretch;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+// Left Column: Testimonial-Style Quote Card
+.story-quote-column {
+  display: flex;
+  align-items: center;
+}
+
+.story-quote-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 32px;
+  padding: 60px 45px 50px;
+  box-shadow: 
+    0 30px 60px rgba(184, 151, 99, 0.06), 
+    0 15px 30px rgba(0, 0, 0, 0.02),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+  border-left: 5px solid $c-red;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  box-sizing: border-box;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+      0 40px 80px rgba(184, 151, 99, 0.12),
+      0 20px 40px rgba(0, 0, 0, 0.04),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+    border-left-color: $c-gold-premium;
+
+    .quote-icon-badge {
+      background: $c-gold-premium;
+      transform: scale(1.1) rotate(10deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 45px 25px 35px;
+    border-radius: 24px;
+  }
+}
+
+.quote-icon-badge {
+  position: absolute;
+  top: -24px;
+  left: 45px;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: $c-red;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba($c-red, 0.25);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @media (max-width: 768px) {
+    left: 30px;
+  }
+}
+
+.quote-text {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-style: italic;
+  color: $c-dark;
+  line-height: 1.65;
+  font-weight: 600;
+  margin: 0 0 35px;
+  letter-spacing: -0.2px;
+  text-align: left;
+}
+
+.quote-divider-line {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to right, $c-gold-premium, rgba($c-gold-premium, 0.1));
+  margin-bottom: 25px;
+}
+
+.quote-footer {
+  text-align: left;
+}
+
+.quote-author-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $c-gray;
+  letter-spacing: 2px;
+}
+
+// Right Column: Narrative Details
+.story-narrative-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.narrative-text-box {
+  margin-bottom: 35px;
+
+  @media (max-width: 1024px) {
+    text-align: center;
+  }
+}
+
+.narrative-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: $c-gold-premium;
+  letter-spacing: 3px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.narrative-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: $c-dark;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.narrative-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.narrative-card {
+  display: flex;
+  gap: 25px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateX(8px);
+    border-color: rgba($c-gold-premium, 0.25);
+    box-shadow: 
+      0 20px 40px rgba(184, 151, 99, 0.08),
+      0 1px 3px rgba(0, 0, 0, 0.01);
+
+    .card-emoji-box {
+      background: rgba($c-gold-premium, 0.15);
+      transform: scale(1.05);
+      
+      .emoji-symbol {
+        transform: scale(1.15) rotate(-5deg);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 35px 20px;
+    gap: 15px;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}
+
+.card-emoji-box {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background: rgba(#faf8f5, 1);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .emoji-symbol {
+    font-size: 1.6rem;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+.card-body-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-heading-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $c-dark;
+  margin: 0;
+}
+
+.card-paragraph {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  color: $c-gray;
+  line-height: 1.65;
+  margin: 0;
+}

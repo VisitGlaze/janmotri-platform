@@ -1,0 +1,846 @@
+@import "../../components/shared/shared.scss";
+
+$brand-red: #E5252A;
+$brand-gold: #D4A017;
+$bg-grey: #F5F5F5;
+$border-col: rgba(0, 0, 0, 0.05);
+
+.order-tracking-page-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-grey;
+}
+
+.order-tracking-main {
+  flex: 1;
+  padding-top: calc(var(--navbar-height) + 20px);
+  padding-bottom: 80px;
+  
+  @media (max-width: 768px) {
+    padding-top: calc(var(--navbar-height) + 15px);
+    padding-bottom: 60px;
+  }
+}
+
+// Loading and Error States
+.loading-container, .error-not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  text-align: center;
+  background: white;
+  margin: 30px auto;
+  max-width: 600px;
+  border-radius: 20px;
+  border: 1px solid $border-col;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+
+  .loading-spinner {
+    font-size: 48px;
+    color: $brand-red;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #4b5563;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+.error-not-found-container {
+  .error-icon-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #fef2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+
+    i {
+      font-size: 40px;
+      color: $brand-red;
+    }
+  }
+
+  h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0 0 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  p {
+    font-size: 15px;
+    color: #6b7280;
+    margin: 0 0 8px;
+
+    &.sub-hint {
+      font-size: 13.5px;
+      color: #9ca3af;
+      margin-bottom: 30px;
+    }
+  }
+
+  .error-back-btn {
+    background-color: $brand-red;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    font-weight: 800;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba($brand-red, 0.2);
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #d11e23;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// Navigation Header
+.tracking-navigation-header {
+  margin-bottom: 24px;
+
+  .back-link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #4b5563;
+    font-size: 14.5px;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    i {
+      font-size: 12px;
+      transition: transform 0.2s;
+    }
+
+    &:hover {
+      color: $brand-red;
+      
+      i {
+        transform: translateX(-3px);
+      }
+    }
+  }
+}
+
+// Order Brief Banner
+.order-brief-banner {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid $border-col;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .banner-details {
+    .order-id-label {
+      font-size: 12px;
+      font-weight: 800;
+      color: $brand-red;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .banner-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #111827;
+      margin: 4px 0 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .banner-estimate {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14.5px;
+      color: #4b5563;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+
+      i {
+        color: #9ca3af;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .banner-actions {
+    display: flex;
+    gap: 12px;
+
+    @media (max-width: 480px) {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 800;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      @media (max-width: 480px) {
+        width: 100%;
+      }
+
+      &.invoice-btn {
+        background: #ffffff;
+        border: 1.5px solid #e5e7eb;
+        color: #4b5563;
+
+        &:hover {
+          background-color: #fafafa;
+          border-color: #d1d5db;
+        }
+      }
+
+      &.support-btn {
+        background: #25d366;
+        border: 1.5px solid #25d366;
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+
+        &:hover {
+          background-color: #128c7e;
+          border-color: #128c7e;
+          box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+        }
+      }
+    }
+  }
+}
+
+// Timeline panel
+.timeline-panel-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid $border-col;
+  padding: 32px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
+
+  .timeline-title-row {
+    font-size: 17px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0 0 32px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    i {
+      color: $brand-red;
+    }
+  }
+
+  // The stepper flex wrapper
+  .timeline-stepper-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 40px;
+      padding-left: 10px;
+    }
+  }
+
+  // Individual stepper nodes
+  .step-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    z-index: 2;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+      gap: 16px;
+      width: 100%;
+    }
+
+    // Connector Line (connecting to the previous node)
+    .step-connector-line {
+      position: absolute;
+      top: 13px;
+      right: 50%;
+      width: 100%;
+      height: 4px;
+      background-color: #e5e7eb;
+      z-index: -1;
+      transition: background-color 0.3s ease;
+
+      @media (max-width: 768px) {
+        top: 26px;
+        left: 13px;
+        bottom: -40px;
+        width: 2px;
+        height: auto;
+        right: auto;
+      }
+    }
+
+    // Circle Node point
+    .step-node-point {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 3px solid #d1d5db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+
+      i {
+        font-size: 10px;
+        color: #ffffff;
+        font-weight: 900;
+      }
+
+      .pulsing-inner-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: $brand-red;
+        animation: activePulse 1.8s infinite;
+      }
+    }
+
+    .step-node-text-wrap {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+
+      @media (max-width: 768px) {
+        margin-top: 3px;
+        align-items: flex-start;
+      }
+
+      .step-label {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: #6b7280;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+
+      .step-date {
+        font-size: 11px;
+        font-weight: 500;
+        color: #9ca3af;
+        font-family: 'Poppins', sans-serif;
+      }
+    }
+
+    // Modifiers per state
+    &.completed {
+      .step-node-point {
+        background-color: $brand-red;
+        border-color: $brand-red;
+      }
+
+      .step-connector-line {
+        background-color: $brand-red;
+      }
+
+      .step-node-text-wrap {
+        .step-label {
+          color: #111827;
+        }
+      }
+    }
+
+    &.active {
+      .step-node-point {
+        border-color: $brand-red;
+        box-shadow: 0 0 0 5px rgba($brand-red, 0.12);
+      }
+
+      .step-connector-line {
+        background-color: $brand-red;
+      }
+
+      .step-node-text-wrap {
+        .step-label {
+          color: $brand-red;
+          font-weight: 800;
+        }
+      }
+    }
+
+    &.pending {
+      .step-node-text-wrap {
+        .step-label {
+          color: #9ca3af;
+        }
+      }
+    }
+  }
+
+  // Cancelled Theme Overrides
+  &.cancelled {
+    .step-node {
+      &.completed {
+        .step-node-point {
+          background-color: #ef4444;
+          border-color: #ef4444;
+        }
+        .step-connector-line {
+          background-color: #ef4444;
+        }
+      }
+
+      &.active {
+        .step-node-point {
+          border-color: #ef4444;
+          background-color: #fef2f2;
+          box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.12);
+          
+          .pulsing-inner-dot {
+            background-color: #ef4444;
+          }
+        }
+        .step-connector-line {
+          background-color: #ef4444;
+        }
+        .step-node-text-wrap {
+          .step-label {
+            color: #ef4444;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 2-Column Details Layout
+.tracking-details-columns-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 30px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.details-left-column, .details-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (max-width: 992px) {
+    gap: 24px;
+  }
+}
+
+// Card blocks
+.details-card-block {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid $border-col;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
+
+  .card-header-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0 0 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1.5px solid #f3f4f6;
+    padding-bottom: 16px;
+
+    i {
+      color: $brand-red;
+      font-size: 15px;
+    }
+
+    &.no-border {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+// Items list rows
+.order-items-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .item-row-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1.5px solid #f9fafb;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .item-thumbnail-box {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      background-color: #fafafa;
+      border: 1.5px solid #f3f4f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      img {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+      }
+    }
+
+    .item-details-meta {
+      flex: 1;
+
+      .item-name {
+        font-size: 15px;
+        font-weight: 700;
+        color: #111827;
+        margin: 0 0 4px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+
+      .item-qty-price {
+        font-size: 13px;
+        color: #6b7280;
+        margin: 0 0 10px;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .item-action-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .item-action-link {
+          background: none;
+          border: none;
+          padding: 0;
+          font-size: 12.5px;
+          font-weight: 700;
+          color: #4b5563;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          cursor: pointer;
+          transition: color 0.2s;
+
+          &:hover {
+            color: $brand-red;
+          }
+
+          &.primary {
+            color: $brand-red;
+
+            &:hover {
+              color: #d11e23;
+              text-decoration: underline;
+            }
+          }
+        }
+
+        .link-divider {
+          color: #e5e7eb;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .item-final-price-column {
+      font-size: 16px;
+      font-weight: 800;
+      color: #111827;
+      font-family: 'Poppins', sans-serif;
+    }
+  }
+}
+
+// Payment tracking grid
+.payment-tracking-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .summary-pricing-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1.5px solid #f3f4f6;
+
+    .price-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+      font-family: 'Poppins', sans-serif;
+      color: #4b5563;
+      font-weight: 500;
+
+      .savings {
+        color: #10b981;
+        font-weight: 700;
+      }
+
+      .free {
+        color: #10b981;
+        font-weight: 700;
+      }
+
+      &.total-highlight {
+        border-top: 1.5px dashed #e5e7eb;
+        padding-top: 12px;
+        margin-top: 4px;
+        font-size: 16px;
+        font-weight: 800;
+        color: #111827;
+      }
+    }
+  }
+
+  .payment-meta-details-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+
+      .meta-label {
+        color: #6b7280;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 700;
+      }
+
+      .meta-value {
+        color: #111827;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+
+        &.font-mono {
+          font-family: monospace;
+          letter-spacing: 0.02em;
+        }
+
+        &.badge {
+          font-size: 11px;
+          font-weight: 800;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          padding: 4px 10px;
+          border-radius: 6px;
+          text-transform: uppercase;
+
+          &.success {
+            background-color: #ecfdf5;
+            color: #10b981;
+          }
+
+          &.pending {
+            background-color: #fffbeb;
+            color: #d97706;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Shipping Address
+.shipping-address-box {
+  .recipient-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .address-body-text {
+    font-size: 13.5px;
+    color: #4b5563;
+    line-height: 1.5;
+    margin: 0 0 16px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .phone-line-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #111827;
+    font-family: 'Poppins', sans-serif;
+
+    i {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+  }
+}
+
+// Help card
+.help-card-gradient {
+  background: linear-gradient(135deg, #fffcf6 0%, #fffbf0 100%) !important;
+  border: 1px solid rgba($brand-gold, 0.15) !important;
+
+  .help-box-description {
+    font-size: 13.5px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0 0 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
+
+  .help-whatsapp-btn {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #25d366;
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 14.5px;
+    font-weight: 800;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #128c7e;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// Active Step pulsing animation
+@keyframes activePulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(229, 37, 42, 0.5);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(229, 37, 42, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(229, 37, 42, 0);
+  }
+}
+
+// Print Styles
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  .order-tracking-page-root {
+    background: #ffffff;
+    
+    nav, footer, .tracking-navigation-header, .banner-actions, .item-action-row, .help-card-gradient {
+      display: none !important;
+    }
+  }
+
+  .order-tracking-main {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .order-brief-banner, .timeline-panel-card, .details-card-block {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .tracking-details-columns-layout {
+    display: block !important;
+  }
+
+  .details-left-column, .details-right-column {
+    display: block !important;
+  }
+}

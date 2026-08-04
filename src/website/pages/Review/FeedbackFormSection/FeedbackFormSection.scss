@@ -1,0 +1,164 @@
+@import "../../../components/shared/shared.scss";
+
+$rev-red-gradient: linear-gradient(135deg, #EC1C24 0%, #D1191F 100%);
+$rev-shadow: 0 15px 45px rgba(0, 0, 0, 0.03);
+$rev-border-radius: 24px;
+$rev-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+.feedback-form-section {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background-color: #ffffff;
+
+  .feedback-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 60px;
+    align-items: start;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  // Left column intro
+  .feedback-intro-pane {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #C29A38;
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-size: clamp(26px, 3.5vw, 40px);
+      color: $c-red;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0 0 18px;
+    }
+
+    .section-description {
+      font-size: 15px;
+      line-height: 1.65;
+      color: $c-gray;
+      margin: 0 0 35px;
+    }
+
+    // Glassmorphic yellow/cream alert box
+    .feedback-alert-box {
+      background-color: #FFF9E6; // warm light yellow backdrop
+      border-radius: 16px;
+      padding: 24px 32px;
+      position: relative;
+      overflow: hidden;
+      border-left: 4px solid $c-red; // Left red line indicator
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+
+      .alert-quote-mark {
+        position: absolute;
+        top: 2px;
+        left: 14px;
+        font-size: 68px;
+        line-height: 1;
+        color: rgba($c-red, 0.05);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 900;
+        pointer-events: none;
+      }
+
+      .alert-text {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #4b5563;
+        font-weight: 700;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+
+  // Right card feedback form
+  .feedback-form-card {
+    @extend .card-premium;
+
+    .feedback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 28px;
+
+      &.flex-two>div {
+        flex: 1;
+      }
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+
+    .form-group {
+      @extend .form-group;
+
+      label {
+        @extend .form-label;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        @extend .form-input;
+      }
+
+      textarea {
+        @extend .form-textarea;
+      }
+    }
+
+    // Rating Selector stars layout
+    .rating-form-group {
+      .stars-rating-container {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .rating-star {
+        font-size: 36px;
+        color: #e5e7eb; // light gray
+        cursor: pointer;
+        user-select: none;
+
+        &.filled {
+          color: $c-red; // red selector stars
+          text-shadow: 0 0 15px rgba($c-red, 0.3);
+        }
+      }
+    }
+
+    .error-banner {
+      @extend .form-error;
+    }
+
+    .success-banner {
+      @extend .form-success;
+    }
+
+    .submit-feedback-btn {
+      @extend .btn-rect-primary;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,420 @@
+@import "../../website/components/shared/shared.scss";
+
+// Base styles for legal pages
+.legal-page-root {
+  background-color: #fbfbf9; // Soft cream background
+  color: $c-dark;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    color: $c-dark;
+  }
+}
+
+.legal-main {
+  position: relative;
+  padding-bottom: 80px;
+}
+
+// Hero section for legal pages
+.legal-hero {
+  @extend .page-hero;
+  background: linear-gradient(135deg, #FFF1DF 0%, #FFFDF7 60%, #ffffff 100%);
+  border-bottom: 1px solid rgba(192, 81, 81, 0.03);
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 380px;
+
+  @include respond-to('tablet') {
+    height: auto;
+    padding: calc(var(--navbar-height) + 40px) 0 40px;
+  }
+
+  .hero-leaf-vector {
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    width: 240px;
+    height: 240px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+
+    @include respond-to('tablet') {
+      display: none;
+    }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding-top: 40px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include respond-to('tablet') {
+      padding-top: 0;
+    }
+  }
+
+  .breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+
+    .breadcrumb-link {
+      color: $c-gray;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $c-red;
+      }
+    }
+
+    .breadcrumb-separator {
+      color: rgba($c-gray, 0.4);
+    }
+
+    .breadcrumb-current {
+      color: $c-red;
+    }
+  }
+
+  .hero-tagline {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #C29A38;
+    margin-bottom: 12px;
+  }
+
+  .hero-title {
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.2;
+    color: $c-dark;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(14px, 1.3vw, 17px);
+    font-weight: 500;
+    line-height: 1.6;
+    color: $c-gray;
+    margin: 0;
+  }
+}
+
+// Content layout & sidebar styling
+.legal-body-section {
+  margin-top: -40px;
+  position: relative;
+  z-index: 10;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  @include respond-to('tablet') {
+    margin-top: 20px;
+    padding: 0;
+  }
+}
+
+.legal-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: flex-start;
+
+  @include respond-to('desktop') {
+    grid-template-columns: 240px 1fr;
+    gap: 30px;
+  }
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.legal-sidebar {
+  position: sticky;
+  top: 140px;
+  z-index: 20;
+
+  @include respond-to('tablet') {
+    display: none; // Hide TOC sidebar on mobile/tablet as requested
+  }
+
+  .toc-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: $shadow-soft;
+    padding: 24px;
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+  }
+
+  .toc-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: $c-dark;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba($c-red, 0.1);
+    padding-bottom: 10px;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .toc-item {
+    margin: 0;
+  }
+
+  .toc-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: $c-gray;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+      background-color: rgba($c-red, 0.03);
+      color: $c-red;
+      padding-left: 16px;
+    }
+
+    &.active {
+      background-color: rgba($c-red, 0.06);
+      color: $c-red;
+      font-weight: 700;
+      padding-left: 16px;
+      border-left: 3px solid $c-red;
+      border-radius: 0 8px 8px 0;
+    }
+  }
+}
+
+// Content Card Styling
+.legal-content-card {
+  background: #ffffff;
+  border-radius: $radius-lg;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: $shadow-medium;
+  padding: 50px;
+  max-width: 900px;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include respond-to('tablet') {
+    padding: 30px 20px;
+    border-radius: $radius-md;
+  }
+
+  .legal-welcome-block {
+    background: linear-gradient(135deg, rgba(194, 154, 56, 0.06) 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid rgba(194, 154, 56, 0.2);
+    border-radius: 12px;
+    //color: #C29A38;
+    padding: 24px;
+    margin-bottom: 30px;
+
+    .welcome-heading {
+      font-size: 20px;
+      font-weight: 800;
+      color: $c-dark;
+      margin: 0 0 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .welcome-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: $c-gray;
+      margin: 0;
+    }
+  }
+
+  .legal-subsections-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .legal-subsection-block {
+    background: #FAF9F6;
+    border-left: 3px solid $c-red;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: $c-dark;
+      margin: 0 0 8px;
+    }
+
+    p {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: $c-gray;
+      margin: 0;
+    }
+  }
+
+  .legal-content-section {
+    scroll-margin-top: 140px; // ensure smooth scroll doesn't hide headers under navbar
+
+    h2 {
+      font-size: clamp(20px, 2.5vw, 24px);
+      font-weight: 800;
+      color: $c-dark;
+      margin: 0 0 16px;
+      line-height: 1.3;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: $c-dark;
+      margin: 20px 0 10px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: $c-gray;
+      margin: 0 0 16px;
+    }
+
+    ul,
+    ol {
+      padding-left: 20px;
+      margin-bottom: 20px;
+
+      li {
+        font-size: 15px;
+        line-height: 1.7;
+        color: $c-gray;
+        margin-bottom: 8px;
+
+        strong {
+          color: $c-dark;
+        }
+      }
+    }
+
+    a {
+      color: $c-red;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1.5px dashed rgba($c-red, 0.3);
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: darken($c-red, 10%);
+        border-bottom-color: $c-red;
+      }
+    }
+  }
+
+  .section-divider {
+    border: 0;
+    height: 1px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+    margin: 40px 0;
+  }
+
+  .important-note {
+    background: #fffbf0;
+    border-left: 4px solid $c-gold;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: $c-gray;
+    margin: 24px 0;
+
+    strong {
+      color: $c-dark;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    &.alert-warning {
+      background: #fff5f5;
+      border-left-color: $c-red;
+    }
+  }
+
+  .contact-details-box {
+    background: $c-light-gray;
+    border-radius: 12px;
+    padding: 24px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: $c-gray;
+    margin-top: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+
+    strong {
+      color: $c-dark;
+      font-size: 16px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: $c-red;
+      text-decoration: none;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

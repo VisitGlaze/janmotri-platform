@@ -1,0 +1,55 @@
+@import "../../../components/shared/shared.scss";
+
+$cont-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+.stay-connected-section {
+  padding: 60px 0;
+  background-color: #ffffff;
+  text-align: center;
+
+  .stay-connected-wrap {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .connected-title {
+    font-size: clamp(24px, 3.2vw, 36px);
+    color: $c-red;
+    font-weight: 800;
+    margin: 0 0 14px 0;
+  }
+
+  .connected-desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: $c-gray;
+    margin: 0 0 32px;
+  }
+
+  .social-links-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .social-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: $c-red;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba($c-red, 0.2);
+    transition: $cont-transition;
+    text-decoration: none;
+
+    &:hover {
+      transform: translateY(-4px) scale(1.08);
+      background-color: #ee3239;
+      box-shadow: 0 8px 25px rgba($c-red, 0.35);
+    }
+  }
+}

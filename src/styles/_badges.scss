@@ -1,0 +1,90 @@
+@import "variables";
+
+.badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  display: inline-block;
+}
+
+.badge-success {
+  @extend .badge;
+  background-color: #ecfdf5;
+  color: $c-success;
+}
+
+.badge-warning {
+  @extend .badge;
+  background-color: #fffbeb;
+  color: $c-warning;
+}
+
+.badge-danger {
+  @extend .badge;
+  background-color: #fff5f5;
+  color: $c-error;
+}
+
+.badge-info {
+  @extend .badge;
+  background-color: #eff6ff;
+  color: $c-info;
+}
+
+.badge-processing {
+  @extend .badge;
+  background-color: #fffbeb;
+  color: #d97706;
+}
+
+.badge-delivered {
+  @extend .badge;
+  background-color: #ecfdf5;
+  color: $c-success;
+}
+
+.badge-cancelled {
+  @extend .badge;
+  background-color: #fff5f5;
+  color: $c-error;
+}
+
+// Status Badges & Classes compatibility mapping
+.status-badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  display: inline-block;
+}
+
+.status-pending, .status-processing {
+  @extend .status-badge;
+  background-color: #fffbeb;
+  color: #d97706;
+}
+
+.status-shipped {
+  @extend .status-badge;
+  background-color: #eff6ff;
+  color: $c-info;
+}
+
+.status-delivered {
+  @extend .status-badge;
+  background-color: #ecfdf5;
+  color: $c-success;
+}
+
+.status-cancelled {
+  @extend .status-badge;
+  background-color: #fff5f5;
+  color: $c-red;
+}

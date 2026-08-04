@@ -1,0 +1,31 @@
+// Brand Colors
+$c-red: #EC1C24;
+$c-brand-red: #ef2027;
+$c-gold: #ffcc00;
+$c-gold-premium: #C5A880;
+$c-dark: #111111;
+$c-gray: #4b5563;
+$c-light-gray: #f3f4f6;
+$c-white: #ffffff;
+$c-bg-grey: #f5f5f5;
+
+// Status & Alert Colors
+$c-success: #10b981;
+$c-warning: #f59e0b;
+$c-error: #ef4444;
+$c-info: #3b82f6;
+
+// Border Radius
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-xl: 24px;
+
+// Elevation & Shadows
+$shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.02);
+$shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.04);
+$shadow-premium: 0 15px 45px rgba(0, 0, 0, 0.08);
+
+$shadow-sm: $shadow-soft;
+$shadow-md: $shadow-medium;
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.05);

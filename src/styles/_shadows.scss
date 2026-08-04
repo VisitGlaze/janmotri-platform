@@ -1,0 +1,18 @@
+@import "variables";
+
+// Shadows utility classes
+.shadow-sm {
+  box-shadow: $shadow-sm !important;
+}
+
+.shadow-md {
+  box-shadow: $shadow-md !important;
+}
+
+.shadow-lg {
+  box-shadow: $shadow-lg !important;
+}
+
+.shadow-premium {
+  box-shadow: $shadow-premium !important;
+}

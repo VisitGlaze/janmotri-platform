@@ -1,0 +1,63 @@
+@import "variables";
+
+// Page/Section Titles & Headings
+.title-page, .page-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+  font-weight: 800;
+  color: $c-white;
+  line-height: 1.15;
+}
+
+.title-section, .section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: $c-dark;
+  line-height: 1.25;
+}
+
+.subtitle-section, .section-subtitle {
+  color: $c-red;
+  font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.desc-section {
+  font-size: 15px;
+  line-height: 1.65;
+  color: $c-gray;
+}
+
+.card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: $c-dark;
+  line-height: 1.35;
+}
+
+// Global text definitions
+.text-body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: $c-gray;
+}
+
+.text-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: $c-dark;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.text-small {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: $c-gray;
+}

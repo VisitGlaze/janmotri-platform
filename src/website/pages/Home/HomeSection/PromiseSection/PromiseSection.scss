@@ -1,0 +1,547 @@
+$red-brand: #ef2027;
+$gold-brand: #f4b400;
+$text-dark: #222222;
+$text-gray: #555555;
+
+/* ============================================================
+   PROMISE SECTION — Home Page
+   All selectors scoped inside .promise-section to prevent
+   style collisions with the About page's .promise-grid.
+   ============================================================ */
+
+.promise-section {
+  padding: clamp(80px, 10vw, 130px) 0;
+  background: radial-gradient(circle at top right, #ffffff 0%, #faf8f5 60%, #f6f3eb 100%);
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+
+  /* ── Background Ornaments ── */
+  .bg-ornament {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-image: radial-gradient(circle, rgba($gold-brand, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+
+    &.bg-ornament-left {
+      top: -80px;
+      left: -80px;
+    }
+
+    &.bg-ornament-right {
+      bottom: -80px;
+      right: -80px;
+    }
+  }
+
+  /* ── Content Container ── */
+  .promise-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ══════════════════════════════════════════
+     TOP: CENTERED SECTION HEADER
+     ══════════════════════════════════════════ */
+  .promise-section-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto clamp(48px, 6vw, 72px) auto;
+
+    h2 {
+      font-size: clamp(32px, 4.2vw, 50px);
+      font-weight: 800;
+      color: $red-brand;
+      margin: 0 0 20px 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      display: inline-block;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 56px;
+        height: 3.5px;
+        background: linear-gradient(90deg, $gold-brand, rgba($gold-brand, 0.3));
+        border-radius: 50px;
+        margin: 14px auto 0 auto;
+      }
+    }
+
+    .intro-text {
+      font-size: clamp(15px, 1.6vw, 18px);
+      line-height: 1.8;
+      color: $text-gray;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     BOTTOM: 2-COLUMN CONTENT GRID
+     Left  → 3 promise cards (stacked)
+     Right → rotating product showcase
+     ══════════════════════════════════════════ */
+  .promise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(40px, 6vw, 90px);
+
+    /* Tablet: single column */
+    @media (max-width: 960px) {
+      grid-template-columns: 1fr;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 52px;
+    }
+  }
+
+  /* ── Left Column: Feature Cards ── */
+  .promise-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    padding: 26px 28px;
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.025),
+      0 1px 4px rgba(0, 0, 0, 0.015);
+    border: 1px solid rgba($gold-brand, 0.14);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+
+    @media (max-width: 560px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      padding: 22px 20px;
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      border-radius: 15px;
+      background: rgba($gold-brand, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $gold-brand;
+      font-size: 24px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1.5px solid rgba($gold-brand, 0.1);
+    }
+
+    .feature-content {
+      flex: 1;
+      min-width: 0;
+
+      h4 {
+        font-size: clamp(15px, 1.5vw, 18px);
+        font-weight: 700;
+        color: $text-dark;
+        margin: 0 0 7px 0;
+        line-height: 1.4;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+
+      p {
+        font-size: 14.5px;
+        line-height: 1.65;
+        color: $text-gray;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      border-color: rgba($red-brand, 0.22);
+      box-shadow:
+        0 16px 40px rgba($red-brand, 0.06),
+        0 4px 12px rgba(0, 0, 0, 0.02);
+
+      .feature-icon {
+        background: rgba($red-brand, 0.07);
+        color: $red-brand;
+        border-color: rgba($red-brand, 0.12);
+        transform: scale(1.08) rotate(5deg);
+      }
+    }
+  }
+
+  /* ── Right Column: Product Showcase ── */
+  .promise-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    @media (max-width: 960px) {
+      /* On mobile, limit showcase size */
+      max-width: 420px;
+      margin: 0 auto;
+    }
+  }
+
+  .product-showcase-container {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 960px) {
+      max-width: 360px;
+    }
+
+    @media (max-width: 480px) {
+      max-width: 280px;
+    }
+  }
+
+  /* Rotating Mandala */
+  .mandala-backdrop {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1;
+
+    .mandala-svg {
+      width: 100%;
+      height: 100%;
+      animation: rotateMandala 60s linear infinite;
+    }
+  }
+
+  /* Concentric Glowing Rings */
+  .glowing-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba($gold-brand, 0.14);
+    pointer-events: none;
+    z-index: 1;
+
+    &.ring-outer {
+      width: 105%;
+      height: 105%;
+      box-shadow: 0 0 40px rgba($gold-brand, 0.03);
+      animation: pulseRingScale 8s ease-in-out infinite alternate;
+    }
+
+    &.ring-middle {
+      width: 85%;
+      height: 85%;
+      border-style: dashed;
+      border-width: 1.5px;
+      border-color: rgba($red-brand, 0.08);
+      animation: pulseRingScale 6s ease-in-out infinite alternate-reverse;
+    }
+
+    &.ring-inner {
+      width: 65%;
+      height: 65%;
+      box-shadow: inset 0 0 30px rgba($gold-brand, 0.05);
+      animation: pulseRingScale 4s ease-in-out infinite alternate;
+    }
+  }
+
+  /* Liquid Oil Splash */
+  .liquid-oil-splash {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: multiply;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* Product Circle Plate */
+  .product-circle-plate {
+    width: 70%;
+    height: 70%;
+    border-radius: 70%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(254, 252, 245, 0.85) 100%);
+    border: 2px solid #ffffff;
+    box-shadow:
+      0 15px 45px rgba(0, 0, 0, 0.04),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .promise-product-image {
+    max-width: 120%;
+    max-height: 120%;
+    object-fit: contain;
+    position: relative;
+    z-index: 4;
+    filter: drop-shadow(0 15px 30px rgba(17, 17, 17, 0.12));
+    animation: bobProduct 5s ease-in-out infinite;
+  }
+
+  /* Floating Elements */
+  .floating-element {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
+    filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.04));
+
+    &.peanut {
+      width: 70px;
+      height: auto;
+      opacity: 0.85;
+
+      @media (max-width: 480px) {
+        width: 50px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      &.peanut-left {
+        top: 15%;
+        left: 0%;
+        animation: floatLeftPeanut 8s ease-in-out infinite;
+      }
+
+      &.peanut-right {
+        bottom: 18%;
+        right: -5%;
+        animation: floatRightPeanut 9s ease-in-out infinite;
+      }
+    }
+
+    &.leaf {
+      font-size: 20px;
+      opacity: 0.8;
+
+      &.leaf-top {
+        top: 8%;
+        right: 12%;
+        animation: floatLeafTop 7s ease-in-out infinite;
+      }
+
+      &.leaf-bottom {
+        bottom: 15%;
+        left: 10%;
+        animation: floatLeafBottom 8s ease-in-out infinite;
+      }
+    }
+
+    &.droplet {
+      width: 14px;
+      height: auto;
+
+      &.droplet-1 {
+        top: 35%;
+        right: -8%;
+        animation: floatDroplet1 10s ease-in-out infinite;
+      }
+
+      &.droplet-2 {
+        bottom: 30%;
+        left: -8%;
+        animation: floatDroplet2 11s ease-in-out infinite;
+      }
+    }
+
+    &.spark {
+      font-size: 14px;
+      color: rgba($gold-brand, 0.6);
+
+      &.spark-1 {
+        top: 15%;
+        left: 20%;
+        animation: flashSpark 4s ease-in-out infinite;
+      }
+
+      &.spark-2 {
+        bottom: 45%;
+        right: 15%;
+        animation: flashSpark 5s ease-in-out infinite 1.5s;
+      }
+    }
+  }
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS (global scope — required for CSS)
+   ============================================================ */
+
+@keyframes rotateMandala {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseRingScale {
+  0% {
+    transform: scale(0.97);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+@keyframes bobProduct {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.01);
+  }
+}
+
+@keyframes floatLeftPeanut {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translate(-10px, -12px) rotate(-15deg) scale(0.95);
+  }
+}
+
+@keyframes floatRightPeanut {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translate(12px, 8px) rotate(20deg) scale(1.03);
+  }
+}
+
+@keyframes floatLeafTop {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(6px, -10px) rotate(12deg);
+  }
+}
+
+@keyframes floatLeafBottom {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-8px, 12px) rotate(-18deg);
+  }
+}
+
+@keyframes floatDroplet1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translate(-5px, -18px) scale(1.15);
+    opacity: 0.95;
+  }
+}
+
+@keyframes floatDroplet2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate(8px, 15px) scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+@keyframes flashSpark {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}

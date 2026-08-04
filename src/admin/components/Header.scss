@@ -1,0 +1,413 @@
+@import "../../website/components/shared/shared.scss";
+
+.admin-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0; // We will handle padding-left dynamically based on sidebar state in parent
+  height: 70px;
+  background-color: #ffffff;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 999;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.01);
+  @include transition-smooth;
+
+  @media (max-width: 991px) {
+    left: 0 !important; // Mobile spans the whole screen width
+  }
+}
+
+// Left side panel
+.header-left-pane {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.sidebar-toggle-btn {
+  background: transparent;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $c-gray;
+  cursor: pointer;
+  font-size: 1.15rem;
+  @include transition-smooth;
+
+  &:hover {
+    background-color: rgba($c-red, 0.03);
+    color: $c-red;
+  }
+
+  &.desktop-only {
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  &.mobile-only {
+    display: none;
+    @media (max-width: 991px) {
+      display: flex;
+    }
+  }
+}
+
+// Breadcrumbs widget
+.admin-breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  gap: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  .breadcrumb-divider {
+    color: #cbd5e1;
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+
+  .breadcrumb-item {
+    color: #94a3b8;
+    text-decoration: none;
+    @include transition-smooth;
+
+    &.link:hover {
+      color: $c-red;
+    }
+
+    &.active {
+      color: $c-dark;
+      font-weight: 800;
+    }
+  }
+}
+
+// Right side control pane
+.header-right-pane {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+// Global search bar mockup
+.header-search-bar {
+  position: relative;
+  width: 240px;
+
+  @media (max-width: 768px) {
+    display: none; // Hide search on smaller devices
+  }
+
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 0.85rem;
+  }
+
+  .search-input {
+    width: 100%;
+    height: 38px;
+    background-color: #fafafa;
+    border: 1.5px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    padding: 0 16px 0 34px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: $c-dark;
+    @include transition-smooth;
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: #ffffff;
+      border-color: $c-red;
+      box-shadow: 0 0 0 3px rgba($c-red, 0.05);
+    }
+  }
+}
+
+// Action button controls
+.header-icon-btn {
+  background: transparent;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $c-gray;
+  cursor: pointer;
+  font-size: 1.15rem;
+  @include transition-smooth;
+
+  &:hover {
+    background-color: #fafafa;
+    color: $c-red;
+  }
+
+  .notification-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: $c-red;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    @include flex-center;
+  }
+}
+
+// Action dropdown container elements
+.header-action-dropdown {
+  position: relative;
+}
+
+.dropdown-overlay-backer {
+  position: fixed;
+  inset: 0;
+  z-index: 1002;
+  background: transparent;
+}
+
+// User Profile widget controls
+.user-profile-widget {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 50px;
+  @include transition-smooth;
+
+  &:hover {
+    background-color: #fafafa;
+
+    .arrow-icon {
+      color: $c-red;
+      transform: translateY(1px);
+    }
+  }
+
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba($c-red, 0.05);
+    color: $c-red;
+    @include flex-center;
+    font-size: 1.1rem;
+    border: 1px solid rgba($c-red, 0.1);
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    text-align: left;
+
+    .user-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: $c-dark;
+      line-height: 1.2;
+    }
+
+    .user-role {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+  }
+
+  .arrow-icon {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    @include transition-smooth;
+  }
+
+  .desktop-only {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+// Generic dropdown menus
+.header-dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  width: 280px;
+  z-index: 1003;
+  animation: dropdownAnim 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top right;
+  overflow: hidden;
+
+  .dropdown-menu-header {
+    padding: 16px 20px;
+    background-color: #fafafa;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: $c-dark;
+      margin: 0;
+    }
+
+    span {
+      font-size: 0.72rem;
+      color: $c-red;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  // Profile Header override
+  .user-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    padding: 24px 20px;
+
+    .user-avatar-large {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background-color: rgba($c-red, 0.05);
+      color: $c-red;
+      @include flex-center;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      border: 1.5px solid rgba($c-red, 0.1);
+    }
+
+    h4 {
+      font-size: 0.95rem;
+    }
+
+    p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin: 0;
+      font-weight: 500;
+    }
+  }
+
+  .dropdown-list {
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+  }
+
+  .dropdown-divider-line {
+    height: 1.5px;
+    background-color: rgba(0, 0, 0, 0.03);
+    margin: 6px 0;
+  }
+
+  .dropdown-list-item {
+    padding: 12px 20px;
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    @include transition-smooth;
+
+    &:hover {
+      background-color: #fcfcfc;
+
+      .dropdown-link-item {
+        color: $c-red;
+      }
+    }
+
+    &.unread {
+      background-color: rgba($c-red, 0.01);
+      border-left: 3px solid $c-red;
+      padding-left: 17px;
+    }
+
+    .item-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: $c-dark;
+      margin: 0 0 3px;
+      line-height: 1.3;
+    }
+
+    .item-time {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.68rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .dropdown-link-item {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+      color: $c-gray;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      @include transition-smooth;
+
+      &.text-danger {
+        color: $c-error;
+        &:hover {
+          color: darken($c-error, 8%);
+        }
+      }
+    }
+  }
+}
+
+@keyframes dropdownAnim {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
