@@ -86,15 +86,15 @@ $bg-active-cream: #fffdf3;
   }
 
   /* Active Card State styling */
-  &.active {
-    .product-card-container {
-      border: 2px solid $c-gold;
-      background: $bg-active-cream;
-      box-shadow:
-        0 0 0 4px rgba(244, 196, 48, 0.12),
-        0 15px 35px rgba(244, 196, 48, 0.25);
-    }
-  }
+  // &.active {
+  //   .product-card-container {
+  //     //border: 2px solid;
+  //     background: $bg-active-cream;
+  //     box-shadow:
+  //       0 0 0 4px rgba(244, 196, 48, 0.12),
+  //       0 15px 35px rgba(244, 196, 48, 0.25);
+  //   }
+  // }
 }
 
 /* Vertical Rounded Card Container */
