@@ -298,6 +298,7 @@
   .why-products {
     width: 350px;
     height: 320px;
+    margin-top: 40px; // Add space below card grid on tablet
   }
 
   .why-products__box {
@@ -341,6 +342,7 @@
   .why-products {
     width: 280px;
     height: 250px;
+    margin-top: 30px; // Add space below card grid on mobile
   }
 
   .why-products__box {
@@ -349,5 +351,10 @@
 
   .why-products__can {
     width: 140px;
+  }
+
+  .why-products__glow {
+    width: 240px;
+    height: 40px;
   }
 }

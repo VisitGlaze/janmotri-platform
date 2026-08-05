@@ -338,7 +338,7 @@ export const translations = {
         },
         p5: {
           name: "Janmotri Groundnut Oil (1 Liter Bottle)",
-          shortName: "1 Liter Bottle",
+          shortName: "1 L - Family Pack",
           desc: [
             "Janmotri 1 Liter Grouandnut Oil Bottle is the epitome of purity and health, formulated with utmost care to bring you the oil as close to nature as possible.",
             "Our peanut oil is extracted from high-quality peanuts, ensuring a rich, nutty flavor that enhances the flavor of your dishes."

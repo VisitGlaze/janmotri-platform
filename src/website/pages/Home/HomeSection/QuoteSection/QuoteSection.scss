@@ -46,7 +46,16 @@
 }
 
 @media (max-width: 768px) {
+  .quote-section {
+    padding: 60px 16px;
+  }
+
+  .quote-container {
+    padding: 40px 16px;
+  }
+
   .quote-container h2 {
-    font-size: 28px;
+    font-size: 26px;
+    margin-bottom: 24px;
   }
 }

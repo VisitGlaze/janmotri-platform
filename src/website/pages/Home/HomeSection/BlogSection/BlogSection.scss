@@ -271,4 +271,20 @@
   .blog-btn {
     width: 100% !important;
   }
+
+  @media (max-width: 480px) {
+    .blog-image {
+      height: 180px;
+    }
+
+    .blog-content {
+      padding: 16px;
+    }
+
+    .blog-content h4 {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+  }
 }

@@ -2,7 +2,7 @@
 
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh; // Use dynamic viewport height
   overflow: hidden;
 }
 
@@ -34,7 +34,7 @@
 
   margin: 0 auto;
 
-  min-height: 100vh;
+  min-height: 100dvh; // Use dynamic viewport height
 
   display: flex;
   align-items: center;
@@ -134,9 +134,11 @@
 
   gap: 15px;
 
-  padding: 14px 14px 14px 28px;
+  padding: 12px 12px 12px 20px;
 
   border: none;
+
+  height: 70px;
 
   border-radius: 60px;
 
@@ -159,11 +161,14 @@
 }
 
 .arrow-circle {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  flex-shrink: 0;
 
   border-radius: 100%;
-
+  padding: 12px 12px 20px 12px;
   background: #ffcc00;
 
   display: flex;
@@ -174,6 +179,9 @@
 
   font-size: 25px;
   font-weight: bold;
+
+
+
 }
 
 /* ========================= */
@@ -202,7 +210,7 @@
 /* ========================= */
 
 .bottom-strip {
-  position: absolute;
+  position: relative;
 
   left: 0;
   bottom: 0;
@@ -214,7 +222,7 @@
 
 .divider-image {
   width: 100%;
-
+  // margin-top: -100px;
   display: block;
 }
 
@@ -237,17 +245,31 @@
   font-weight: 550;
 }
 
-/* ========================= */
-/* TABLET */
-/* ========================= */
+/* ========================================================= */
+/* TABLET & MOBILE RESPONSIVE (Stack layout to prevent overlaps) */
+/* ========================================================= */
 
 @media (max-width: 1024px) {
+  .hero-section {
+    min-height: auto; // Content-driven, fits height of content
+  }
+
   .container {
-    padding: calc(var(--navbar-height) + 32px) 30px 180px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: calc(var(--navbar-height) + 40px) 20px 40px;
+    align-items: center;
+    min-height: auto; // Content-driven, fits height of content
   }
 
   .hero-content {
-    width: 60%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .welcome-wrapper {
+    justify-content: center;
+    margin-bottom: 8px;
   }
 
   .welcome-text {
@@ -264,59 +286,7 @@
   .hero-content h1 {
     font-size: 20px;
     margin-top: 10px;
-    margin-bottom: 26px;
-  }
-
-  .hero-image {
-    width: 380px;
-
-    right: 0;
-  }
-
-  .bottom-text {
-    font-size: 18px;
-  }
-}
-
-/* ========================= */
-/* MOBILE */
-/* ========================= */
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-
-    justify-content: center;
-
-    padding: calc(var(--navbar-height) + 32px) 20px 180px;
-  }
-
-  .hero-content {
-    width: 100%;
-
-    text-align: center;
-  }
-
-  .welcome-wrapper {
-    justify-content: center;
-  }
-
-  .welcome-text {
-    font-size: 26px;
-    line-height: 1.22;
-  }
-
-  .burst-image {
-    width: 50px;
-    margin-left: 8px;
-    margin-top: -5px;
-  }
-
-  .hero-content h1 {
-    font-size: 17px;
-    margin-top: 10px;
-    margin-bottom: 22px;
-
+    margin-bottom: 24px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -325,30 +295,74 @@
     text-align: center;
   }
 
-  .hero-btn {
-    font-size: 14px;
-  }
-
   .hero-image {
     position: relative;
-
-    width: 280px;
-
+    width: 100%;
+    max-width: 380px;
     right: auto;
     bottom: auto;
-
-    margin-top: 40px;
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .bottom-text {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: -35px auto 25px; // Pull onto wave but keep in normal flow to prevent overlapping
     width: 90%;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 10px;
+    font-size: 18px;
+    z-index: 6;
+  }
+}
 
+@media (max-width: 768px) {
+  .welcome-text {
+    font-size: 28px;
+    line-height: 1.22;
+  }
+
+  .burst-image {
+    width: 55px;
+    margin-left: 8px;
+    margin-top: -5px;
+  }
+
+  .hero-content h1 {
+    font-size: 17px;
+    margin-top: 8px;
+    margin-bottom: 16px; // Tighter balance
+  }
+
+  .hero-btn {
     font-size: 14px;
+    height: 60px;
+  }
+
+  .arrow-circle {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .hero-image {
+    max-width: 260px; // Visually balanced size on mobile viewports
+    margin-top: 24px;
+  }
+
+  .bottom-text {
+    font-size: 14px;
+    margin: -25px auto 20px; // Scaled pull
+  }
+}
+
+@media (max-width: 480px) {
+  .burst-image {
+    display: none; // Reduce visual clutter from decorative icons on small screens
   }
 }

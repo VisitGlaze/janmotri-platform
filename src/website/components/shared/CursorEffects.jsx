@@ -215,39 +215,6 @@ const CursorEffects = () => {
   return (
     <div className="cursor-effects-container">
       
-      {/* Background organic illustrations with ambient float animations and cursor magnetism */}
-      <div className="decorations-layer">
-        {bgDecors.map((decor, index) => {
-          const style = {
-            top: decor.top,
-            width: `${decor.size}px`,
-            height: `${decor.size}px`,
-          };
-
-          if (decor.left) style.left = decor.left;
-          if (decor.right) style.right = decor.right;
-
-          // If accessibility prefers-reduced-motion is active, disable ambient animations
-          if (!prefersReducedMotion) {
-            style.animation = `ambientFloat ${8 + decor.speed * 4}s ease-in-out infinite alternate`;
-            style.animationDelay = `${decor.id * 0.6}s`;
-          }
-
-          return (
-            <div
-              key={decor.id}
-              ref={(el) => (decorRefs.current[index] = el)}
-              className={`float-decor float-decor--${decor.type}`}
-              style={style}
-            >
-              {decor.type === "leaf" && <LeafSVG />}
-              {decor.type === "peanut" && <PeanutSVG />}
-              {decor.type === "drop" && <OilDropSVG />}
-            </div>
-          );
-        })}
-      </div>
-
       {/* Cursor Particle Trails (Desktop Only, disabled if prefersReducedMotion is active) */}
       {!isMobile && !prefersReducedMotion &&
         particles.map((p) => (

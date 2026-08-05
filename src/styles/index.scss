@@ -13,3 +13,9 @@
 @import "badges";
 @import "containers";
 @import "utilities";
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+

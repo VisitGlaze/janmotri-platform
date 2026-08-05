@@ -184,3 +184,54 @@
     font-size: 38px;
   }
 }
+
+@media (max-width: 480px) {
+  .stats-section {
+    padding: 45px 12px;
+  }
+
+  .main-card {
+    padding: 24px 20px;
+    min-height: auto;
+
+    h5 {
+      margin-top: 20px;
+    }
+
+    h2 {
+      margin: 20px 0;
+      font-size: 42px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  .small-card {
+    padding: 20px;
+
+    h3 {
+      font-size: 32px;
+      margin: 10px 0;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .info-card {
+    padding: 16px;
+    gap: 12px;
+
+    h4 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    span {
+      font-size: 13px;
+    }
+  }
+}
