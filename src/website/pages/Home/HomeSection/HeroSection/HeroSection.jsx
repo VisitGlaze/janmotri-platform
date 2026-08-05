@@ -24,7 +24,6 @@ const HeroSection = () => {
   const springY = useSpring(y, { stiffness: 90, damping: 22 });
 
   const [isMobile, setIsMobile] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -37,14 +36,8 @@ const HeroSection = () => {
     };
     checkMotion();
 
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => {
       window.removeEventListener("resize", checkViewport);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -73,13 +66,10 @@ const HeroSection = () => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Background organic parallax layer (moves slower) */}
+      {/* Background layer */}
       <div
         className="hero-bg-layer"
-        style={{
-          backgroundImage: `url(${getImage("heroBg")})`,
-          transform: !prefersReducedMotion ? `translate3d(0, ${scrollY * 0.14}px, 0)` : "none",
-        }}
+        style={{ backgroundImage: `url(${getImage("heroBg")})` }}
       />
 
       {/* Overlay */}

@@ -3,13 +3,13 @@
 /* ========================================================= */
 
 .cursor-effects-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; // Click through entire overlay
-  overflow: hidden;
+  pointer-events: none;
+  overflow: clip; // 'clip' clips content without creating a scroll container or scrollbar
   z-index: 1;
 }
 
@@ -46,10 +46,12 @@
     translate: 0 0;
     rotate: 0deg;
   }
+
   50% {
     translate: 10px -15px;
     rotate: 3deg;
   }
+
   100% {
     translate: -8px 10px;
     rotate: -3deg;
@@ -87,6 +89,7 @@
     opacity: 0.9;
     transform: translate(-50%, -50%) scale(1);
   }
+
   100% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.15);
@@ -128,6 +131,7 @@
     opacity: 1;
     border-width: 3.5px;
   }
+
   100% {
     transform: scale(2.2);
     opacity: 0;

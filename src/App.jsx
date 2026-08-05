@@ -1,4 +1,5 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Home from "./website/pages/Home";
 import About from "./website/pages/About";
 import Review from "./website/pages/Review";
@@ -20,9 +21,26 @@ import TermsConditions from "./pages/TermsConditions/TermsConditions";
 import ReturnReplacementPolicy from "./pages/ReturnReplacementPolicy/ReturnReplacementPolicy";
 import ShippingPolicy from "./pages/ShippingPolicy/ShippingPolicy";
 
+// Disable browser scroll restoration. Without this, Chrome restores the
+// previous body.scrollTop AFTER React mounts, conflicting with ScrollRestorer.
+if (typeof window !== "undefined") {
+  window.history.scrollRestoration = "manual";
+}
+
+// Scrolls to top on every client-side route change.
+// Must be inside <Router> to access useLocation.
+const ScrollRestorer = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
+  return null;
+};
+
 function App() {
   return (
     <Router>
+      <ScrollRestorer />
       <CustomCursor />
       <CursorEffects />
       <ScrollToTop />
@@ -47,6 +65,7 @@ function App() {
         <Route path="/admin/*" element={<AdminLayout />} />
       </Routes>
     </Router>
+
   );
 }
 

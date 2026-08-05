@@ -24,18 +24,18 @@ const Home = () => {
     const handler = (e) => setPrefersReducedMotion(e.matches);
     mediaQuery.addEventListener("change", handler);
 
+    // Handle anchor scrolling (e.g. from Navbar links like #products-section)
     if (location.state && location.state.scrollToId) {
       const { scrollToId } = location.state;
-      if (scrollToId === "top") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
+      if (scrollToId !== "top") {
         setTimeout(() => {
           const element = document.getElementById(scrollToId);
           if (element) {
             element.scrollIntoView({ behavior: "smooth" });
           }
-        }, 50);
+        }, 100);
       }
+      // Clear state so refresh doesn't re-trigger the scroll
       window.history.replaceState({}, document.title);
     }
 
