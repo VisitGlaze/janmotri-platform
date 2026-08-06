@@ -87,7 +87,7 @@ const ProcessSection = () => {
                     <div className="card-header-accent" />
 
                     <div className="step-count-badge">
-                      <span className="step-prefix">STAGE</span>
+                      <span className="step-prefix">{t("about.process.stagePrefix", "STAGE")}</span>
                       <span className="step-num">{step.step}</span>
                     </div>
 
@@ -95,12 +95,12 @@ const ProcessSection = () => {
                     <p className="editorial-step-desc">{t(`about.process.steps.${index}.desc`, step.desc)}</p>
 
                     {/* Premium check assurance mark */}
-                    <div className="editorial-assurance">
+                    {/* <div className="editorial-assurance">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="assurance-icon">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                       <span className="assurance-text">{t("about.process.guarantee", "Janmotri Purity Guaranteed")}</span>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
 

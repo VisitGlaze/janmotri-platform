@@ -70,8 +70,8 @@ $c-gold-premium: #C5A880;
   -webkit-backdrop-filter: blur(16px);
   border-radius: 32px;
   padding: 60px 45px 50px;
-  box-shadow: 
-    0 30px 60px rgba(184, 151, 99, 0.06), 
+  box-shadow:
+    0 30px 60px rgba(184, 151, 99, 0.06),
     0 15px 30px rgba(0, 0, 0, 0.02),
     inset 0 0 0 1px rgba(255, 255, 255, 0.7);
   border-left: 5px solid $c-red;
@@ -81,7 +81,7 @@ $c-gold-premium: #C5A880;
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 
+    box-shadow:
       0 40px 80px rgba(184, 151, 99, 0.12),
       0 20px 40px rgba(0, 0, 0, 0.04),
       inset 0 0 0 1px rgba(255, 255, 255, 0.9);
@@ -205,14 +205,14 @@ $c-gold-premium: #C5A880;
   &:hover {
     transform: translateX(8px);
     border-color: rgba($c-gold-premium, 0.25);
-    box-shadow: 
+    box-shadow:
       0 20px 40px rgba(184, 151, 99, 0.08),
       0 1px 3px rgba(0, 0, 0, 0.01);
 
     .card-emoji-box {
       background: rgba($c-gold-premium, 0.15);
       transform: scale(1.05);
-      
+
       .emoji-symbol {
         transform: scale(1.15) rotate(-5deg);
       }

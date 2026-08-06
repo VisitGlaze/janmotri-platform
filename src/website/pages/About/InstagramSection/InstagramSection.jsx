@@ -6,7 +6,7 @@ import InstagramCard from "../../../components/shared/InstagramCard";
 import "./InstagramSection.scss";
 
 const InstagramSection = () => {
-  const { getImage } = useLanguage();
+  const { t, getImage } = useLanguage();
   const { title, handle, link, postKeys } = aboutData.instagram;
 
   const containerVariants = {
@@ -33,7 +33,7 @@ const InstagramSection = () => {
       <Container>
         <div className="instagram-header-wrap">
           <div className="insta-title-left">
-            <h2 className="insta-heading">{title}</h2>
+            <h2 className="insta-heading">{t("about.instagram.title", title)}</h2>
             <div className="heading-line"></div>
           </div>
           

@@ -8,7 +8,7 @@ import "./HeroSection.scss";
 
 const HeroSection = () => {
   const navigate = useNavigate();
-  const { t, getImage } = useLanguage();
+  const { language, t, getImage } = useLanguage();
 
   const handleExploreClick = () => {
     navigate("/products");
@@ -62,7 +62,8 @@ const HeroSection = () => {
 
   return (
     <section
-      className="hero-section"
+      className={`hero-section lang-${language}`}
+      lang={language}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
