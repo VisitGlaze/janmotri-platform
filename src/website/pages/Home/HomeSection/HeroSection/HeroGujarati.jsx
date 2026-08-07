@@ -93,7 +93,7 @@ const HeroGujarati = () => {
             જન્મોત્રી મગફળીનું <span className="highlight">તેલ</span>
           </h1>
 
-          <h2 className="hero-subheading">૧૦૦% શુદ્ધ મગફળીનું તેલ</h2>
+          <h2 className="hero-subheading_h2">૧૦૦% શુદ્ધ મગફળીનું તેલ</h2>
 
           <div className="hero-btn-wrapper">
             <button className="hero-btn" onClick={handleExploreClick} type="button">

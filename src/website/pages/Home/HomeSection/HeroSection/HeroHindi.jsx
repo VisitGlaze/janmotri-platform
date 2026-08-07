@@ -93,7 +93,7 @@ const HeroHindi = () => {
             जन्मोत्री मूंगफली का <span className="highlight">तेल</span>
           </h1>
 
-          <h2 className="hero-subheading">100% शुद्ध मूंगफली का तेल</h2>
+          <h2 className="hero-subheading_h2">100% शुद्ध मूंगफली का तेल</h2>
 
           <div className="hero-btn-wrapper">
             <button className="hero-btn" onClick={handleExploreClick} type="button">

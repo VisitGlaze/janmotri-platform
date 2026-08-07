@@ -93,7 +93,7 @@ const HeroEnglish = () => {
             Janmotri Groundnut <span className="highlight">Oil</span>
           </h1>
 
-          <h2 className="hero-subheading">100% Pure &amp; Natural Groundnut Oil</h2>
+          <h2 className="hero-subheading_h2">100% Pure &amp; Natural Groundnut Oil</h2>
 
           <div className="hero-btn-wrapper">
             <button className="hero-btn" onClick={handleExploreClick} type="button">
