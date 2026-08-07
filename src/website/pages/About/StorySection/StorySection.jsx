@@ -85,7 +85,7 @@ const StorySection = () => {
           {/* Right Column: Narrative Descriptions */}
           <motion.div className="story-narrative-column" variants={rightColumnVariants}>
             <div className="narrative-text-box">
-              <span className="narrative-eyebrow">{t("about.story.essence", "THE ESSENCE OF JANMOTRI")}</span>
+              {/* <span className="narrative-eyebrow">{t("about.story.essence", "THE ESSENCE OF JANMOTRI")}</span> */}
               <h3 className="narrative-heading">{t("about.story.traditionModernity", "Tradition Meets Innovation")}</h3>
             </div>
 

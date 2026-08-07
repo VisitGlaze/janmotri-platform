@@ -1,0 +1,136 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLanguage } from "../../../../../shared/LanguageContext";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import "./HeroSection.scss";
+
+const TRUST_POINTS = ["100% Pure", "Healthy Choice", "Traditional Oil"];
+
+const HeroEnglish = () => {
+  const navigate = useNavigate();
+  const { getImage } = useLanguage();
+
+  const handleExploreClick = () => {
+    navigate("/products");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const springX = useSpring(x, { stiffness: 90, damping: 22 });
+  const springY = useSpring(y, { stiffness: 90, damping: 22 });
+
+  const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const checkViewport = () => setIsMobile(window.innerWidth < 768);
+    const checkMotion = () => setPrefersReducedMotion(mediaQuery.matches);
+
+    checkViewport();
+    checkMotion();
+
+    window.addEventListener("resize", checkViewport);
+    mediaQuery.addEventListener("change", checkMotion);
+
+    return () => {
+      window.removeEventListener("resize", checkViewport);
+      mediaQuery.removeEventListener("change", checkMotion);
+    };
+  }, []);
+
+  const handleMouseMove = (e) => {
+    if (isMobile || prefersReducedMotion) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const normX = (e.clientX - rect.left) / rect.width - 0.5;
+    const normY = (e.clientY - rect.top) / rect.height - 0.5;
+    x.set(normX * 24);
+    y.set(normY * 24);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <section
+      className="hero-section lang-en"
+      lang="en"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Background layer */}
+      <div
+        className="hero-bg-layer"
+        style={{ backgroundImage: `url(${getImage("heroBg")})` }}
+      />
+
+      {/* Readability scrim */}
+      <div className="overlay" />
+
+      <div className="container">
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <span className="hero-eyebrow">
+            <img
+              src={getImage("burst")}
+              alt=""
+              aria-hidden="true"
+              className="eyebrow-icon"
+            />
+            Welcome to Janmotri
+          </span>
+
+          <h1 className="welcome-text">
+            Janmotri Groundnut <span className="highlight">Oil</span>
+          </h1>
+
+          <h2 className="hero-subheading">100% Pure &amp; Natural Groundnut Oil</h2>
+
+          <div className="hero-btn-wrapper">
+            <button className="hero-btn" onClick={handleExploreClick} type="button">
+              <span>Explore Products</span>
+              <span className="arrow-circle">→</span>
+            </button>
+          </div>
+
+          <ul className="trust-row" aria-label="Key features">
+            {TRUST_POINTS.map((point) => (
+              <li className="trust-chip" key={point}>
+                <span className="trust-tick" aria-hidden="true" />
+                {point}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
+        <motion.div
+          className="hero-image"
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+          style={{ x: springX, y: springY, cursor: "pointer" }}
+          onClick={handleExploreClick}
+        >
+          <div className="hero-image-glow" aria-hidden="true" />
+          <img src={getImage("heroProducts")} alt="Janmotri Groundnut Oil Products" />
+        </motion.div>
+      </div>
+
+      {/* Bottom Divider — decorative only */}
+      <div className="bottom-strip">
+        <img src={getImage("divider")} alt="" aria-hidden="true" className="divider-image" />
+      </div>
+    </section>
+  );
+};
+
+export default HeroEnglish;

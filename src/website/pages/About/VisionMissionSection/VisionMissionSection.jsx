@@ -19,36 +19,36 @@ const VisionMissionSection = () => {
 
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.9, rotate: -5 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
+    visible: {
+      opacity: 1,
+      scale: 1,
       rotate: 0,
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } 
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
   const cardVariants = {
     hidden: { opacity: 0, x: 50 },
-    visible: { 
-      opacity: 1, 
-      x: 0, 
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
   return (
     <section className="about-vision-mission about-section-padding">
       <Container>
-        <motion.div 
+        <motion.div
           className="vision-mission-grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          
+
           {/* Left Column - Image with decorative rotating rings */}
-          <motion.div 
+          <motion.div
             className="vm-image-col"
             variants={imageVariants}
           >
@@ -62,40 +62,40 @@ const VisionMissionSection = () => {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Right Column - Cards */}
           <div className="vm-cards-col">
-            
+
             {/* Vision Card */}
-            <motion.div 
+            <motion.div
               className="vm-card card-vision"
               variants={cardVariants}
             >
               <div className="card-indicator"></div>
               <div className="vm-card-body">
-                <span className="card-label">{t("about.visionMission.focusLabel", "🌱 Our Focus")}</span>
+                {/* <span className="card-label">{t("about.visionMission.focusLabel", "🌱 Our Focus")}</span> */}
                 <h3 className="card-title">{t("about.visionMission.vision", vision.title)}</h3>
                 <p className="card-text">{t("about.visionMission.visionDesc", vision.desc)}</p>
               </div>
               <div className="vm-card-backdrop-glow" />
             </motion.div>
-            
+
             {/* Mission Card */}
-            <motion.div 
+            <motion.div
               className="vm-card card-mission"
               variants={cardVariants}
             >
               <div className="card-indicator"></div>
               <div className="vm-card-body">
-                <span className="card-label">{t("about.visionMission.pathLabel", "🤝 Our Path")}</span>
+                {/* <span className="card-label">{t("about.visionMission.pathLabel", "🤝 Our Path")}</span> */}
                 <h3 className="card-title">{t("about.visionMission.mission", mission.title)}</h3>
                 <p className="card-text">{t("about.visionMission.missionDesc", mission.desc)}</p>
               </div>
               <div className="vm-card-backdrop-glow" />
             </motion.div>
-            
+
           </div>
-          
+
         </motion.div>
       </Container>
     </section>

@@ -26,7 +26,9 @@ const ProcessSection = () => {
 
       <Container>
         <div className="process-header-container">
-          <SectionTitle subtitle={t("about.process.subtitle", subtitle)} title={t("about.process.title", title)} centered />
+          <SectionTitle
+            // subtitle={t("about.process.subtitle", subtitle)} 
+            title={t("about.process.title", title)} centered />
           <p className="process-intro-narrative">
             {t("about.process.desc", description)}
           </p>
@@ -87,7 +89,7 @@ const ProcessSection = () => {
                     <div className="card-header-accent" />
 
                     <div className="step-count-badge">
-                      <span className="step-prefix">{t("about.process.stagePrefix", "STAGE")}</span>
+                      {/* <span className="step-prefix">{t("about.process.stagePrefix", "STAGE")}</span> */}
                       <span className="step-num">{step.step}</span>
                     </div>
 

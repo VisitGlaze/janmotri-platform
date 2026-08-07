@@ -22,10 +22,10 @@ const PromiseSection = () => {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
@@ -33,8 +33,8 @@ const PromiseSection = () => {
     <section className="about-promise about-section-padding">
       <Container>
         <SectionTitle subtitle={t("about.promise.subtitle", subtitle)} title={t("about.promise.title", title)} centered />
-        
-        <motion.div 
+
+        <motion.div
           className="promise-grid"
           variants={containerVariants}
           initial="hidden"
@@ -42,8 +42,8 @@ const PromiseSection = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           {cards.map((card, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               variants={cardVariants}
               className="promise-card-wrapper"
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
@@ -55,7 +55,7 @@ const PromiseSection = () => {
                   </div>
                   <Tag value={t(`about.promise.cards.${index}.tag`, card.tag)} severity={card.severity} className="promise-card-tag" />
                 </div>
-                <h3 className="promise-card-title">{t(`about.promise.cards.${index}.title`, card.title)}</h3>
+                {/* <h3 className="promise-card-title">{t(`about.promise.cards.${index}.title`, card.title)}</h3> */}
                 <p className="promise-card-desc">{t(`about.promise.cards.${index}.desc`, card.desc)}</p>
                 <div className="promise-card-glow" />
               </div>
