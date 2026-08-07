@@ -80,13 +80,13 @@ const HeroHindi = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <span className="hero-eyebrow">
+            जन्मोत्री में आपका स्वागत है
             <img
               src={getImage("burst")}
               alt=""
               aria-hidden="true"
               className="eyebrow-icon"
             />
-            जन्मोत्री में आपका स्वागत है
           </span>
 
           <h1 className="welcome-text">
