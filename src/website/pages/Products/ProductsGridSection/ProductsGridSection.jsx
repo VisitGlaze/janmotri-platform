@@ -29,7 +29,7 @@ export default function ProductsGridSection() {
   return (
     <section className="products-grid-section">
       <Container>
-        <h2 className="grid-heading-eyebrow">{t("productsPage.eyebrow", "Pure Lakdi Ghani Wood-Pressed Oils")}</h2>
+        {/* <h2 className="grid-heading-eyebrow">{t("productsPage.eyebrow", "Pure Lakdi Ghani Wood-Pressed Oils")}</h2> */}
 
         <div className="products-main-grid">
           {productsData.map((product, idx) => (

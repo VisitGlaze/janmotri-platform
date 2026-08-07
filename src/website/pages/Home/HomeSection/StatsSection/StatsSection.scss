@@ -104,9 +104,15 @@
   margin-top: 35px;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.5fr 1fr 1fr;
+  align-items: start;
 
   gap: 30px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .info-card {

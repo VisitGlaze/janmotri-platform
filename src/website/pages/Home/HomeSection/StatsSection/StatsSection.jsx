@@ -1,3 +1,4 @@
+import LocationSelectorCard from "./LocationSelectorCard";
 import { useLanguage } from "../../../../../shared/LanguageContext";
 import "./StatsSection.scss";
 
@@ -42,16 +43,8 @@ const StatsSection = () => {
 
         <div className="stats-bottom">
 
-          <div className="info-card">
-            <div className="circle-icon">
-              <i className="pi pi-globe"></i>
-            </div>
-
-            <div>
-              <h4>{t("home.stats.mainOpsVal", "02 States")}</h4>
-              <span>{t("home.stats.mainOps", "MAIN OPERATIONS")}</span>
-            </div>
-          </div>
+          {/* Interactive Premium Location Selector Card */}
+          <LocationSelectorCard />
 
           <div className="info-card">
             <div className="circle-icon">
