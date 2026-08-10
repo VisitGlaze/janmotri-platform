@@ -1,70 +1,50 @@
 /* =====================================================================
-   LOCATION SELECTOR CARD — Premium FMCG Location Checker Component
+   LOCATION SELECTOR CARD — Delivery Areas (Gujarat Fixed State & Cities)
    ===================================================================== */
 
 $brand-red    : #ef2027;
 $brand-red-dk : #c0000d;
-$brand-yellow : #f4b400;
 $dark         : #1a1a1a;
 $mid          : #444444;
-$muted        : #777777;
-$border       : rgba(0, 0, 0, 0.08);
-$border-focus : rgba(239, 32, 39, 0.35);
+$muted        : #666666;
+$border-light : rgba(239, 32, 39, 0.12);
+$chip-bg      : #faf8f5;
 
-.loc-selector-card {
-  position      : relative;
-  background    : #ffffff;
-  border        : 1px solid rgba(239, 32, 39, 0.12);
-  border-radius : 24px;
-  padding       : 28px 30px;
-  box-shadow    : 0 16px 40px rgba(32, 26, 20, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
-  backdrop-filter: blur(8px);
-  overflow      : visible; // Allows dropdown menus to float over sibling content
-  transition    : border-color 0.3s ease, box-shadow 0.3s ease;
+.delivery-card {
+  position        : relative;
+  background      : #ffffff;
+  border          : 1px solid $border-light;
+  border-radius   : 20px;
+  padding         : 28px 28px 24px;
+  box-shadow      : 0 12px 36px rgba(32, 26, 20, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition      : border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow        : hidden;
 
   &:hover {
-    border-color: rgba(239, 32, 39, 0.22);
-    box-shadow  : 0 20px 48px rgba(239, 32, 39, 0.08), 0 6px 16px rgba(0, 0, 0, 0.04);
+    border-color: rgba(239, 32, 39, 0.25);
+    box-shadow  : 0 16px 42px rgba(239, 32, 39, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
   }
 
   @media (max-width: 640px) {
     padding: 22px 20px;
-    border-radius: 20px;
+    border-radius: 18px;
   }
 }
 
-// Background soft lighting glow
-.loc-card-glow {
-  position      : absolute;
-  top           : -20%;
-  right         : -10%;
-  width         : 180px;
-  height        : 180px;
-  border-radius : 50%;
-  background    : radial-gradient(circle, rgba(239, 32, 39, 0.08) 0%, transparent 70%);
-  pointer-events: none;
-  z-index       : 0;
+// ── Header Row ────────────────────────────────────────────────────────
+.delivery-card__header {
+  display    : flex;
+  align-items: center;
+  gap        : 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-// Card Header
-.loc-card-header {
-  display     : flex;
-  align-items : center;
-  gap         : 16px;
-  margin-bottom: 24px;
-  position    : relative;
-  z-index     : 1;
-
-  @media (max-width: 480px) {
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-}
-
-.loc-header-badge {
-  width          : 48px;
-  height         : 48px;
-  border-radius  : 16px;
+.delivery-card__icon-badge {
+  width          : 44px;
+  height         : 44px;
+  border-radius  : 14px;
   background     : rgba(239, 32, 39, 0.08);
   border         : 1px solid rgba(239, 32, 39, 0.15);
   display        : flex;
@@ -74,23 +54,23 @@ $border-focus : rgba(239, 32, 39, 0.35);
   color          : $brand-red;
 
   @media (max-width: 480px) {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
   }
 }
 
-.loc-pin-icon {
-  font-size: 22px;
+.delivery-card__pin-icon {
+  font-size: 20px;
 
   @media (max-width: 480px) {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 
-.loc-header-title {
-  margin     : 0 0 2px;
-  font-size  : 1.15rem;
+.delivery-card__title {
+  margin     : 0;
+  font-size  : 1.12rem;
   font-weight: 800;
   color      : $dark;
   line-height: 1.25;
@@ -100,327 +80,114 @@ $border-focus : rgba(239, 32, 39, 0.35);
   }
 }
 
-.loc-header-subtitle {
-  margin     : 0;
-  font-size  : 0.82rem;
-  color      : $muted;
-  font-weight: 500;
+// ── Primary State Block ───────────────────────────────────────────────
+.delivery-card__state-block {
+  margin-bottom: 20px;
 }
 
-// Controls Grid Layout
-.loc-controls-grid {
-  display              : grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap                  : 16px;
-  position             : relative;
-  z-index              : 2;
-
-  @media (max-width: 640px) {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-}
-
-.loc-field-group {
-  position: relative;
-}
-
-.loc-field-label {
-  display      : block;
-  font-size    : 0.78rem;
-  font-weight  : 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color        : $mid;
-  margin-bottom: 6px;
-}
-
-// Dropdown Button
-.loc-dropdown-btn {
-  width          : 100%;
-  height         : 48px;
-  padding        : 0 16px;
-  background     : #ffffff;
-  border         : 1.5px solid rgba(0, 0, 0, 0.1);
-  border-radius  : 14px;
-  display        : flex;
-  align-items    : center;
-  justify-content: space-between;
-  gap            : 10px;
-  font-size      : 0.95rem;
-  font-weight    : 600;
-  color          : $dark;
-  cursor         : pointer;
-  outline        : none;
-  transition     : border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-
-  &:hover:not(:disabled) {
-    border-color: rgba(239, 32, 39, 0.35);
-    background  : #fafafa;
-  }
-
-  &--active {
-    border-color: $brand-red !important;
-    box-shadow  : 0 0 0 4px rgba(239, 32, 39, 0.12);
-    background  : #ffffff !important;
-  }
-
-  &--disabled {
-    background: #f5f5f5;
-    border-color: rgba(0, 0, 0, 0.06);
-    color     : #a0a0a0;
-    cursor    : not-allowed;
-    opacity   : 0.75;
-  }
-
-  @media (max-width: 480px) {
-    height: 44px;
-    padding: 0 14px;
-    font-size: 0.9rem;
-    border-radius: 12px;
-  }
-}
-
-.loc-dropdown-val {
-  white-space  : nowrap;
-  overflow     : hidden;
-  text-overflow: ellipsis;
-
-  &--placeholder {
-    color      : #999999;
-    font-weight: 400;
-  }
-}
-
-.loc-chevron {
-  font-size : 18px;
-  color     : #666666;
-  flex-shrink: 0;
-  transition: transform 0.25s ease, color 0.25s ease;
-
-  &--open {
-    transform: rotate(180deg);
-    color    : $brand-red;
-  }
-}
-
-// Floating Dropdown Menu
-.loc-dropdown-menu {
-  position      : absolute;
-  top           : calc(100% + 6px);
-  left          : 0;
-  right         : 0;
-  background    : #ffffff;
-  border        : 1.5px solid rgba(239, 32, 39, 0.18);
-  border-radius : 16px;
-  box-shadow    : 0 16px 36px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
-  padding       : 6px;
-  margin        : 0;
-  list-style    : none;
-  z-index       : 99;
-  max-height    : 240px;
-  overflow-y    : auto;
-
-  // Custom scrollbar
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #dddddd;
-    border-radius: 10px;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: $brand-red;
-  }
-
-  &--searchable {
-    padding: 10px;
-  }
-}
-
-// Search Box inside Dropdown
-.loc-search-box {
-  position     : relative;
-  display      : flex;
-  align-items  : center;
-  margin-bottom: 8px;
-}
-
-.loc-search-icon {
-  position      : absolute;
-  left          : 12px;
-  font-size     : 16px;
-  color         : #888888;
-  pointer-events: none;
-}
-
-.loc-search-input {
-  width        : 100%;
-  height       : 38px;
-  padding      : 0 32px 0 36px;
-  border       : 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 10px;
-  font-size    : 0.88rem;
-  color        : $dark;
-  outline      : none;
-  background   : #fbfbfb;
-  transition   : border-color 0.2s, background 0.2s;
-
-  &:focus {
-    border-color: $brand-red;
-    background  : #ffffff;
-  }
-}
-
-.loc-search-clear {
-  position    : absolute;
-  right       : 10px;
-  background  : none;
-  border      : none;
-  color       : #999999;
-  font-size   : 14px;
-  cursor      : pointer;
-  display     : flex;
-  align-items : center;
-  justify-content: center;
-  padding     : 2px;
-  border-radius: 50%;
-
-  &:hover {
-    color     : $dark;
-    background: #eeeeee;
-  }
-}
-
-.loc-cities-list {
-  list-style: none;
-  margin    : 0;
-  padding   : 0;
-  max-height: 180px;
-  overflow-y: auto;
-}
-
-// Dropdown Menu Item
-.loc-menu-item {
-  padding        : 10px 14px;
-  border-radius  : 10px;
-  font-size      : 0.92rem;
-  font-weight    : 600;
-  color          : $mid;
-  display        : flex;
-  align-items    : center;
-  justify-content: space-between;
-  cursor         : pointer;
-  transition     : background 0.2s ease, color 0.2s ease;
-
-  &:hover {
-    background: rgba(239, 32, 39, 0.06);
-    color     : $brand-red;
-  }
-
-  &--selected {
-    background: rgba(239, 32, 39, 0.1) !important;
-    color     : $brand-red !important;
-    font-weight: 700;
-  }
-}
-
-.loc-check-icon {
-  font-size: 16px;
-  color    : $brand-red;
-}
-
-.loc-no-results {
-  padding   : 16px 12px;
-  text-align: center;
-  font-size : 0.86rem;
-  color     : #888888;
-}
-
-// Selected Result Info Card
-.loc-result-card {
-  margin-top   : 20px;
-  background   : linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-  border       : 1.5px solid #a7f3d0;
-  border-radius: 18px;
-  padding      : 18px 20px;
-  position     : relative;
-  z-index      : 1;
-  box-shadow   : 0 8px 20px rgba(16, 185, 129, 0.08);
-
-  @media (max-width: 480px) {
-    padding: 14px 16px;
-    border-radius: 14px;
-    margin-top: 16px;
-  }
-}
-
-.loc-result-header {
+.delivery-card__state-row {
   display    : flex;
   align-items: center;
   gap        : 12px;
-  margin-bottom: 12px;
 }
 
-.loc-result-pin {
-  width          : 36px;
-  height         : 36px;
-  border-radius  : 50%;
-  background     : #059669;
-  color          : #ffffff;
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  font-size      : 16px;
-  flex-shrink    : 0;
-  box-shadow     : 0 4px 10px rgba(5, 150, 105, 0.25);
-}
-
-.loc-result-eyebrow {
-  display       : block;
-  font-size     : 0.72rem;
-  font-weight   : 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color         : #047857;
-}
-
-.loc-result-place {
-  margin     : 0;
-  font-size  : 1.05rem;
+.delivery-card__state-name {
+  font-size  : 1.65rem;
   font-weight: 800;
-  color      : #064e3b;
-  line-height: 1.2;
+  color      : $brand-red;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+
+  @media (max-width: 480px) {
+    font-size: 1.4rem;
+  }
 }
 
-.loc-status-pill {
+.delivery-card__active-badge {
   display      : inline-flex;
   align-items  : center;
-  gap          : 8px;
-  padding      : 8px 14px;
+  gap          : 6px;
+  padding      : 4px 10px;
+  background   : rgba(16, 185, 129, 0.1);
+  border       : 1px solid rgba(16, 185, 129, 0.25);
   border-radius: 999px;
-  font-size    : 0.86rem;
+  font-size    : 0.72rem;
   font-weight  : 700;
-  line-height  : 1.3;
+  color        : #059669;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
 
-  &--success {
-    background: #10b981;
-    color     : #ffffff;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
-  }
+.delivery-card__live-dot {
+  width        : 6px;
+  height       : 6px;
+  border-radius: 50%;
+  background   : #10b981;
+  box-shadow   : 0 0 6px rgba(16, 185, 129, 0.8);
+}
 
-  &--warning {
-    background: #f59e0b;
-    color     : #ffffff;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+.delivery-card__supporting-text {
+  margin     : 6px 0 0;
+  font-size  : 0.92rem;
+  font-weight: 500;
+  color      : $muted;
+  line-height: 1.35;
+}
+
+// ── City Chips Grid ───────────────────────────────────────────────────
+.delivery-card__cities-grid {
+  display  : flex;
+  flex-wrap: wrap;
+  gap      : 8px 10px;
+
+  @media (max-width: 480px) {
+    gap: 8px 8px;
   }
 }
 
-.loc-status-icon {
-  font-size  : 16px;
+.delivery-card__city-chip {
+  display      : inline-flex;
+  align-items  : center;
+  gap          : 7px;
+  padding      : 8px 14px;
+  background   : $chip-bg;
+  border       : 1.5px solid rgba(239, 32, 39, 0.12);
+  border-radius: 999px;
+  transition   : background 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  cursor       : default;
+
+  &:hover {
+    background  : #ffffff;
+    border-color: rgba(239, 32, 39, 0.35);
+    transform   : translateY(-2px);
+    box-shadow  : 0 4px 12px rgba(239, 32, 39, 0.1);
+
+    .delivery-card__chip-icon {
+      color: $brand-red;
+      transform: scale(1.1);
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 6px 12px;
+    gap    : 5px;
+  }
+}
+
+.delivery-card__chip-icon {
+  font-size  : 14px;
+  color      : #10b981;
   flex-shrink: 0;
+  transition : color 0.2s ease, transform 0.2s ease;
+}
+
+.delivery-card__chip-text {
+  font-size  : 0.88rem;
+  font-weight: 700;
+  color      : $dark;
+  white-space: nowrap;
+
+  @media (max-width: 480px) {
+    font-size: 0.82rem;
+  }
 }

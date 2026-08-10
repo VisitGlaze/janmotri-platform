@@ -85,7 +85,6 @@ export const translations = {
         totalSalesDesc: "Total transactions completed by our trusted customers worldwide.",
         delivery: "DELIVERY",
         deliveryDesc: "Orders Delivered.",
-        //deliveryDesc: "Orders are Delivered.",
         happyCust: "HAPPY CUSTOMERS",
         happyCustDesc: "Happy customers who love our products.",
         mainOps: "MAIN OPERATIONS",
@@ -94,6 +93,39 @@ export const translations = {
         serviceAreasVal: "200+ Locations",
         community: "GROWING COMMUNITY",
         communityVal: "50,000+ Customers"
+      },
+      dashboard: {
+        totalSales: {
+          title: "Total Sales",
+          value: "1,00,000+",
+          description: "Total sales generated through our trusted customers worldwide."
+        },
+        delivery: {
+          title: "Deliveries",
+          value: "52,000+",
+          description: "Successfully delivered orders."
+        },
+        happyCustomers: {
+          title: "Happy Customers",
+          value: "48,000+",
+          description: "Our trusted and satisfied customers."
+        },
+        deliveryAreas: {
+          title: "Delivery Available Areas",
+          state: "Gujarat",
+          availableText: "Delivery is available in Gujarat",
+          cities: ["Vadodara", "Anand", "Surat", "Vapi", "Bhavnagar", "Ahmedabad", "Nadiad"]
+        },
+        distributionCenters: {
+          title: "Distribution Centers",
+          value: "200+",
+          description: "Our service centers near you."
+        },
+        growingBusiness: {
+          title: "Growing Business",
+          value: "50,000+",
+          description: "Growing business and orders every day."
+        }
       },
       quote: {
         text: "Our mission is to bring purity, health, and trust to every home.",
@@ -228,6 +260,39 @@ export const translations = {
           "Made from premium quality G20 groundnuts of Saurashtra, this oil is 100% pure and double filtered.",
           "Janmotri Groundnut Oil – The Best Choice for Your Family’s Health!"
         ]
+      }
+    },
+    dashboard: {
+      totalSales: {
+        title: "Total Sales",
+        value: "1,00,000+",
+        description: "Total sales generated through our trusted customers worldwide."
+      },
+      delivery: {
+        title: "Deliveries",
+        value: "52,000+",
+        description: "Successfully delivered orders."
+      },
+      happyCustomers: {
+        title: "Happy Customers",
+        value: "48,000+",
+        description: "Our trusted and satisfied customers."
+      },
+      deliveryAreas: {
+        title: "Delivery Available Areas",
+        state: "Gujarat",
+        availableText: "Delivery is available in Gujarat",
+        cities: ["Vadodara", "Anand", "Surat", "Vapi", "Bhavnagar", "Ahmedabad", "Nadiad"]
+      },
+      distributionCenters: {
+        title: "Distribution Centers",
+        value: "200+",
+        description: "Our service centers near you."
+      },
+      growingBusiness: {
+        title: "Growing Business",
+        value: "50,000+",
+        description: "Growing business and orders every day."
       }
     },
     about: {
@@ -862,6 +927,39 @@ export const translations = {
         community: "વધતો વ્યાપાર",
         communityVal: "૫૦,૦૦૦+ ગ્રાહકો"
       },
+      dashboard: {
+        totalSales: {
+          title: "કુલ વેચાણ",
+          value: "1,00,000+",
+          description: "વિશ્વભરમાં ફેલાયેલ અમારા વિશ્વાસુ ગ્રાહકો દ્વારા થયેલ કુલ વેચાણ."
+        },
+        delivery: {
+          title: "ડિલિવરી",
+          value: "52,000+",
+          description: "સફળતાપૂર્વક ડિલિવર થયેલા ઓર્ડર્સ."
+        },
+        happyCustomers: {
+          title: "ખુશ ગ્રાહકો",
+          value: "48,000+",
+          description: "અમારા વિશ્વાસુ અને સંતુષ્ટ ગ્રાહકો."
+        },
+        deliveryAreas: {
+          title: "ડિલિવરી ઉપલબ્ધ વિસ્તારો",
+          state: "ગુજરાત",
+          availableText: "ગુજરાતમાં ડિલિવરી ઉપલબ્ધ છે",
+          cities: ["વડોદરા", "આણંદ", "સુરત", "વાપી", "ભાવનગર", "અમદાવાદ", "નડિયાદ"]
+        },
+        distributionCenters: {
+          title: "વિતરણ કેન્દ્રો",
+          value: "200+",
+          description: "અમારા સેવા કેન્દ્રો તમારા નજીક."
+        },
+        growingBusiness: {
+          title: "વધતો વેપાર",
+          value: "50,000+",
+          description: "દરરોજ વધતો વેપાર અને ઓર્ડર્સ."
+        }
+      },
       quote: {
         text: "અમારું ધ્યેય માત્ર તેલ વેચવાનું નથી, પરંતુ દરેક પરિવાર સુધી શુદ્ધતા, આરોગ્ય અને વિશ્વાસ પહોંચાડવાનું છે.",
         author: "— જન્મોત્રી ફૂડ્સના સ્થાપક"
@@ -1079,6 +1177,39 @@ export const translations = {
       },
       instagram: {
         title: "અમને ઇન્સ્ટાગ્રામ પર ફોલો કરો"
+      }
+    },
+    dashboard: {
+      totalSales: {
+        title: "કુલ વેચાણ",
+        value: "1,00,000+",
+        description: "વિશ્વભરમાં ફેલાયેલ અમારા વિશ્વાસુ ગ્રાહકો દ્વારા થયેલ કુલ વેચાણ."
+      },
+      delivery: {
+        title: "ડિલિવરી",
+        value: "52,000+",
+        description: "સફળતાપૂર્વક ડિલિવર થયેલા ઓર્ડર્સ."
+      },
+      happyCustomers: {
+        title: "ખુશ ગ્રાહકો",
+        value: "48,000+",
+        description: "અમારા વિશ્વાસુ અને સંતુષ્ટ ગ્રાહકો."
+      },
+      deliveryAreas: {
+        title: "ડિલિવરી ઉપલબ્ધ વિસ્તારો",
+        state: "ગુજરાત",
+        availableText: "ગુજરાતમાં ડિલિવરી ઉપલબ્ધ છે",
+        cities: ["વડોદરા", "આણંદ", "સુરત", "વાપી", "ભાવનગર", "અમદાવાદ", "નડિયાદ"]
+      },
+      distributionCenters: {
+        title: "વિતરણ કેન્દ્રો",
+        value: "200+",
+        description: "અમારા સેવા કેન્દ્રો તમારા નજીક."
+      },
+      growingBusiness: {
+        title: "વધતો વેપાર",
+        value: "50,000+",
+        description: "દરરોજ વધતો વેપાર અને ઓર્ડર્સ."
       }
     },
     productsPage: {
@@ -1630,6 +1761,39 @@ export const translations = {
         community: "बढ़ता समुदाय",
         communityVal: "50,000+ ग्राहक"
       },
+      dashboard: {
+        totalSales: {
+          title: "कुल बिक्री",
+          value: "1,00,000+",
+          description: "दुनियाभर में हमारे भरोसेमंद ग्राहकों द्वारा की गई कुल बिक्री।"
+        },
+        delivery: {
+          title: "डिलीवरी",
+          value: "52,000+",
+          description: "सफलतापूर्वक डिलीवर किए गए ऑर्डर।"
+        },
+        happyCustomers: {
+          title: "खुश ग्राहक",
+          value: "48,000+",
+          description: "हमारे भरोसेमंद और संतुष्ट ग्राहक।"
+        },
+        deliveryAreas: {
+          title: "डिलीवरी उपलब्ध क्षेत्र",
+          state: "गुजरात",
+          availableText: "गुजरात में डिलीवरी उपलब्ध है",
+          cities: ["वडोदरा", "आणंद", "सूरत", "वापी", "भावनगर", "अहमदाबाद", "नडियाद"]
+        },
+        distributionCenters: {
+          title: "वितरण केंद्र",
+          value: "200+",
+          description: "हमारे सेवा केंद्र आपके नज़दीक।"
+        },
+        growingBusiness: {
+          title: "बढ़ता कारोबार",
+          value: "50,000+",
+          description: "हर दिन बढ़ता कारोबार और ऑर्डर्स।"
+        }
+      },
       quote: {
         text: "हमारा लक्ष्य केवल बिक्री नहीं, बल्कि हर घर में शुद्धता और स्वास्थ्य पहुंचाना है.",
         author: "— जन्मोत्री फूड्स के संस्थापक"
@@ -1845,6 +2009,39 @@ export const translations = {
       },
       instagram: {
         title: "हमें इंस्टाग्राम पर फॉलो करें"
+      }
+    },
+    dashboard: {
+      totalSales: {
+        title: "कुल बिक्री",
+        value: "1,00,000+",
+        description: "दुनियाभर में हमारे भरोसेमंद ग्राहकों द्वारा की गई कुल बिक्री।"
+      },
+      delivery: {
+        title: "डिलीवरी",
+        value: "52,000+",
+        description: "सफलतापूर्वक डिलीवर किए गए ऑर्डर।"
+      },
+      happyCustomers: {
+        title: "खुश ग्राहक",
+        value: "48,000+",
+        description: "हमारे भरोसेमंद और संतुष्ट ग्राहक।"
+      },
+      deliveryAreas: {
+        title: "डिलीवरी उपलब्ध क्षेत्र",
+        state: "गुजरात",
+        availableText: "गुजरात में डिलीवरी उपलब्ध है",
+        cities: ["वडोदरा", "आणंद", "सूरत", "वापी", "भावनगर", "अहमदाबाद", "नडियाद"]
+      },
+      distributionCenters: {
+        title: "वितरण केंद्र",
+        value: "200+",
+        description: "हमारे सेवा केंद्र आपके नज़दीक।"
+      },
+      growingBusiness: {
+        title: "बढ़ता कारोबार",
+        value: "50,000+",
+        description: "हर दिन बढ़ता कारोबार और ऑर्डर्स।"
       }
     },
     productsPage: {
