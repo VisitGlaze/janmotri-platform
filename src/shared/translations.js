@@ -176,12 +176,12 @@ export const translations = {
             desc: "Multi-stage cleaning. Pods are thoroughly cleaned and sorted to select only the healthiest, premium kernels."
           },
           {
-            title: "Traditional Cold Pressed",
-            desc: "Traditional wooden Ghani. Slow extraction at low temperatures ensures natural nutrients and aroma are fully preserved."
+            title: "Expeller Machine",
+            desc: "Our oil is not cold pressed or wood pressed but is pure oil made by an expeller machine."
           },
           {
-            title: "Filtration",
-            desc: "Natural sedimentation. Oil is filtered using eco-friendly cotton fabric filters, retaining pure golden clarity without chemicals."
+            title: "Filtration Process",
+            desc: "Double filtered quality assured castor oil produced from cotton cloth by expeller machine."
           },
           {
             title: "Packaging",
@@ -334,8 +334,8 @@ export const translations = {
         steps: [
           { title: "Seed Selection", desc: "Sourcing premium Saurashtra G20 peanuts direct from organic farms." },
           { title: "Purification", desc: "Double sorting and air filtration to remove shells and damaged seeds." },
-          { title: "Traditional Cold Pressing", desc: "Slow extraction in wooden Lakdi Ghani at low temperatures to retain nutrients." },
-          { title: "Filtration", desc: "Eco-friendly filtration using natural cotton fabrics for golden clarity." },
+          { title: "Expeller Machine", desc: "Our oil is not cold pressed or wood pressed but is pure oil made by an expeller machine." },
+          { title: "Filtration Process", desc: "Double filtered quality assured castor oil produced from cotton cloth by expeller machine." },
           { title: "Quality Check", desc: "Rigorous laboratory testing for acid value, moisture, and chemical-free assurance." },
           { title: "Packaging & Delivery", desc: "Sealing in food-grade, leak-proof tin cans and shipping fresh to your doorstep." }
         ]
@@ -383,7 +383,7 @@ export const translations = {
       productsList: {
         p1: {
           name: "Janmotri Groundnut Oil (5 liters)",
-          shortName: "5 L – Value Saver Pack",
+          shortName: "5 L - Family Pack",
           desc: [
             "Janmotri 5 Liter Groundnut Oil is the epitome of purity and health, formulated with utmost care to bring you the oil as close to nature as possible.",
             "Our peanut oil is extracted from high-quality peanuts, ensuring a rich, nutty flavor that enhances the flavor of your dishes."
@@ -413,7 +413,7 @@ export const translations = {
         },
         p4: {
           name: "Janmotri Groundnut Oil (500 ml – Mini Pack)",
-          shortName: "500 ml – Mini Pack",
+          shortName: "500 ml - Trial Pack",
           desc: [
             "Janmotri 500ml Groundnut Oil Bottle is the epitome of purity and health, formulated with utmost care to bring you the oil as close to nature as possible.",
             "Our peanut oil is extracted from high-quality peanuts, ensuring a rich, nutty flavor that enhances the flavor of your dishes."
@@ -423,7 +423,7 @@ export const translations = {
         },
         p5: {
           name: "Janmotri Groundnut Oil (1 Liter Bottle)",
-          shortName: "1 L - Family Pack",
+          shortName: "1 L - Mini Pack",
           desc: [
             "Janmotri 1 Liter Grouandnut Oil Bottle is the epitome of purity and health, formulated with utmost care to bring you the oil as close to nature as possible.",
             "Our peanut oil is extracted from high-quality peanuts, ensuring a rich, nutty flavor that enhances the flavor of your dishes."

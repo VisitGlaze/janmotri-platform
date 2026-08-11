@@ -2,7 +2,7 @@
 
 .floating-whatsapp-btn {
   position: fixed;
-  bottom: 28px;
+  bottom: 35px;
   right: 28px;
   width: 58px;
   height: 58px;
@@ -79,10 +79,12 @@
     transform: scale(0.95);
     opacity: 0.8;
   }
+
   50% {
     transform: scale(1.25);
     opacity: 0;
   }
+
   100% {
     transform: scale(0.95);
     opacity: 0;

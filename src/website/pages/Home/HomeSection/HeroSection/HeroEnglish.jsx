@@ -4,43 +4,56 @@ import { useLanguage } from "../../../../../shared/LanguageContext";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import "./HeroSection.scss";
 
+
+
 const TRUST_POINTS = ["100% Pure", "Healthy Choice", "Traditional Oil"];
+
 
 const HeroEnglish = () => {
   const navigate = useNavigate();
   const { getImage } = useLanguage();
+
 
   const handleExploreClick = () => {
     navigate("/products");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+
 
   const springX = useSpring(x, { stiffness: 90, damping: 22 });
   const springY = useSpring(y, { stiffness: 90, damping: 22 });
 
+
   const [isMobile, setIsMobile] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+
     const checkViewport = () => setIsMobile(window.innerWidth < 768);
     const checkMotion = () => setPrefersReducedMotion(mediaQuery.matches);
+
 
     checkViewport();
     checkMotion();
 
+
     window.addEventListener("resize", checkViewport);
     mediaQuery.addEventListener("change", checkMotion);
+
 
     return () => {
       window.removeEventListener("resize", checkViewport);
       mediaQuery.removeEventListener("change", checkMotion);
     };
   }, []);
+
 
   const handleMouseMove = (e) => {
     if (isMobile || prefersReducedMotion) return;
@@ -51,10 +64,12 @@ const HeroEnglish = () => {
     y.set(normY * 24);
   };
 
+
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
   };
+
 
   return (
     <section
@@ -63,14 +78,16 @@ const HeroEnglish = () => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Background layer */}
+      Background layer
       <div
         className="hero-bg-layer"
         style={{ backgroundImage: `url(${getImage("heroBg")})` }}
       />
 
+
       {/* Readability scrim */}
       <div className="overlay" />
+
 
       <div className="container">
         <motion.div
@@ -89,12 +106,15 @@ const HeroEnglish = () => {
             />
           </span>
 
+
           <h1 className="welcome-text">
             Janmotri Groundnut
             <span className="highlight">Oil</span>
           </h1>
 
+
           <h2 className="hero-subheading_h2">100% Pure &amp; Natural Groundnut Oil</h2>
+
 
           <div className="hero-btn-wrapper">
             <button className="hero-btn" onClick={handleExploreClick} type="button">
@@ -102,6 +122,7 @@ const HeroEnglish = () => {
               <span className="arrow-circle">→</span>
             </button>
           </div>
+
 
           <ul className="trust-row" aria-label="Key features">
             {TRUST_POINTS.map((point) => (
@@ -112,6 +133,7 @@ const HeroEnglish = () => {
             ))}
           </ul>
         </motion.div>
+
 
         <motion.div
           className="hero-image"
@@ -126,6 +148,7 @@ const HeroEnglish = () => {
         </motion.div>
       </div>
 
+
       {/* Bottom Divider — decorative only */}
       <div className="bottom-strip">
         <img src={getImage("divider")} alt="" aria-hidden="true" className="divider-image" />
@@ -134,4 +157,6 @@ const HeroEnglish = () => {
   );
 };
 
+
 export default HeroEnglish;
+

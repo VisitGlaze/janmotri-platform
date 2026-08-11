@@ -37,6 +37,7 @@ import farmingImg from "../assets/images/farming.png";
 import filtrationImg from "../assets/images/filtration.png";
 import fssaiImg from "../assets/images/fssai.png";
 import heroBgImg from "../assets/images/hero-bg.png";
+//import englishHeroImg from "../assets/images/english-hero.png";
 import heroProductsImg from "../assets/images/hero-products.png";
 import insta1Img from "../assets/images/insta-1.png";
 import insta2Img from "../assets/images/insta-2.png";

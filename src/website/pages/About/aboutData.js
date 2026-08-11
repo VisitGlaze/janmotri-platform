@@ -35,21 +35,21 @@ export const aboutData = {
       },
       {
         step: "03",
-        title: "Traditional Cold Pressing",
-        desc: "Slow extraction in wooden Lakdi Ghani at low temperatures to retain nutrients.",
+        title: "Expeller Machine",
+        desc: "Our oil is not cold pressed or wood pressed but is pure oil made by an expeller machine.",
         imageKey: "extraction"
       },
       {
         step: "04",
-        title: "Filtration",
-        desc: "Eco-friendly filtration using natural cotton fabrics for golden clarity.",
+        title: "Filtration Process",
+        desc: "Double filtered quality assured castor oil produced from cotton cloth by expeller machine.",
         imageKey: "filtering"
       },
       {
         step: "05",
         title: "Quality Check",
         desc: "Rigorous laboratory testing for acid value, moisture, and chemical-free assurance.",
-        imageKey: "promiseOil"
+        imageKey: "packaging"
       },
       {
         step: "06",

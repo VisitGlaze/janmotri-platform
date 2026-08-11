@@ -4,7 +4,7 @@
 
 .scroll-to-top-btn {
   position: fixed;
-  bottom: 98px;
+  bottom: 110px;
   right: 28px;
   width: 60px;
   height: 60px;
@@ -14,20 +14,20 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   z-index: 99998; // Sits just under custom cursor (999999)
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   opacity: 0;
   visibility: hidden;
   transform: translateY(15px) scale(0.8);
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s ease,
-              background-color 0.3s ease;
-  
+    visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+
   // Clean enter animations
   &.is-visible {
     opacity: 1;
@@ -40,7 +40,7 @@
     transform: scale(1.08);
     box-shadow: 0 12px 30px rgba(208, 2, 27, 0.16);
     background-color: #fffdf9;
-    
+
     .oil-drop-fill {
       filter: drop-shadow(0 0 3px rgba(208, 2, 27, 0.4));
     }
@@ -58,16 +58,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  
+
   circle {
     fill: none;
   }
-  
+
   &__bg {
     stroke: rgba(0, 0, 0, 0.05);
     stroke-width: 5;
   }
-  
+
   &__fill {
     stroke: #f5c518; // Brand yellow
     stroke-width: 5;
@@ -84,17 +84,17 @@
   height: 26px;
   position: relative;
   z-index: 2;
-  
+
   .oil-drop-svg {
     width: 100%;
     height: 100%;
     display: block;
   }
-  
+
   .oil-drop-bg {
     fill: rgba(0, 0, 0, 0.06);
   }
-  
+
   .oil-drop-fill {
     fill: #d0021b; // Brand red
     transition: fill 0.3s ease;
@@ -109,7 +109,7 @@
     width: 50px;
     height: 50px;
   }
-  
+
   .drop-container {
     width: 18px;
     height: 22px;
@@ -121,7 +121,7 @@
   .scroll-to-top-btn {
     transition: opacity 0.3s ease, visibility 0.3s ease !important;
     transform: none !important;
-    
+
     &:hover {
       transform: none !important;
     }

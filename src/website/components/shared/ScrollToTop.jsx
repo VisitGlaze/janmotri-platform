@@ -21,7 +21,7 @@ const ScrollToTop = () => {
     const handleScroll = () => {
       const scrolled = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      
+
       // Calculate scroll progress percentage (0 - 100)
       if (docHeight > 0) {
         const progress = (scrolled / docHeight) * 100;
@@ -90,13 +90,13 @@ const ScrollToTop = () => {
               <rect x="0" y={clipY} width="100" height="110" />
             </clipPath>
           </defs>
-          
+
           {/* Background hollow drop shape */}
           <path
             d="M50 10 C50 10, 85 55, 85 75 C85 94.2, 69.3 110, 50 110 C30.7 110, 15 94.2, 15 75 C15 55, 50 10, 50 10 Z"
             className="oil-drop-bg"
           />
-          
+
           {/* Filled drop representing scroll progress */}
           <path
             d="M50 10 C50 10, 85 55, 85 75 C85 94.2, 69.3 110, 50 110 C30.7 110, 15 94.2, 15 75 C15 55, 50 10, 50 10 Z"
