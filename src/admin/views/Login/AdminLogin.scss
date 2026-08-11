@@ -1,0 +1,252 @@
+@import "../../../styles/index.scss";
+
+.admin-login-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d8d8d8;
+  background-image: radial-gradient(circle at top right, rgba(236, 28, 36, 0.05), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(255, 204, 0, 0.03), transparent 40%);
+  padding: 24px;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 480px) {
+    padding: 28px 20px;
+    gap: 20px;
+  }
+}
+
+.admin-login-header {
+  text-align: center;
+
+  .admin-logo {
+    width: 90px;
+    height: auto;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.4;
+  }
+}
+
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+
+  label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+  }
+}
+
+.admin-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+  padding: 0 14px;
+  transition: all 0.25s ease;
+
+  i {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-right: 10px;
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    outline: none;
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+  }
+
+  &:focus-within {
+    border-color: #EC1C24; // Red focus
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(236, 28, 36, 0.1);
+
+    i {
+      color: #EC1C24;
+    }
+  }
+}
+
+.admin-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.admin-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #4b5563;
+  font-weight: 600;
+
+  input {
+    cursor: pointer;
+    accent-color: #EC1C24;
+  }
+}
+
+.admin-forgot-btn {
+  border: none;
+  background: transparent;
+  color: #EC1C24;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.admin-submit-btn {
+  width: 100%;
+  background: #111827; // dark gray button
+  color: #ffffff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: #EC1C24; // Hover turns Red
+    box-shadow: 0 4px 12px rgba(236, 28, 36, 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.admin-error-banner {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #991b1b;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  line-height: 1.4;
+
+  i {
+    font-size: 16px;
+    margin-top: 1px;
+  }
+}
+
+.admin-credentials-tip {
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #4b5563;
+  display: flex;
+  gap: 10px;
+  text-align: left;
+  line-height: 1.4;
+
+  i {
+    font-size: 14px;
+    color: #3b82f6;
+    margin-top: 2px;
+  }
+
+  strong {
+    color: #1f2937;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  p {
+    margin: 2px 0;
+
+    code {
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+  }
+}
+
+// Fade in animation
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}

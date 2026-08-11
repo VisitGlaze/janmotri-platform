@@ -1,0 +1,193 @@
+/* =====================================================================
+   LOCATION SELECTOR CARD — Delivery Areas (Gujarat Fixed State & Cities)
+   ===================================================================== */
+
+$brand-red    : #ef2027;
+$brand-red-dk : #c0000d;
+$dark         : #1a1a1a;
+$mid          : #444444;
+$muted        : #666666;
+$border-light : rgba(239, 32, 39, 0.12);
+$chip-bg      : #faf8f5;
+
+.delivery-card {
+  position        : relative;
+  background      : #ffffff;
+  border          : 1px solid $border-light;
+  border-radius   : 20px;
+  padding         : 28px 28px 24px;
+  box-shadow      : 0 12px 36px rgba(32, 26, 20, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition      : border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow        : hidden;
+
+  &:hover {
+    border-color: rgba(239, 32, 39, 0.25);
+    box-shadow  : 0 16px 42px rgba(239, 32, 39, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  }
+
+  @media (max-width: 640px) {
+    padding: 22px 20px;
+    border-radius: 18px;
+  }
+}
+
+// ── Header Row ────────────────────────────────────────────────────────
+.delivery-card__header {
+  display    : flex;
+  align-items: center;
+  gap        : 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.delivery-card__icon-badge {
+  width          : 44px;
+  height         : 44px;
+  border-radius  : 14px;
+  background     : rgba(239, 32, 39, 0.08);
+  border         : 1px solid rgba(239, 32, 39, 0.15);
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  flex-shrink    : 0;
+  color          : $brand-red;
+
+  @media (max-width: 480px) {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+}
+
+.delivery-card__pin-icon {
+  font-size: 20px;
+
+  @media (max-width: 480px) {
+    font-size: 17px;
+  }
+}
+
+.delivery-card__title {
+  margin     : 0;
+  font-size  : 1.12rem;
+  font-weight: 800;
+  color      : $dark;
+  line-height: 1.25;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+// ── Primary State Block ───────────────────────────────────────────────
+.delivery-card__state-block {
+  margin-bottom: 20px;
+}
+
+.delivery-card__state-row {
+  display    : flex;
+  align-items: center;
+  gap        : 12px;
+}
+
+.delivery-card__state-name {
+  font-size  : 1.65rem;
+  font-weight: 800;
+  color      : $brand-red;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+
+  @media (max-width: 480px) {
+    font-size: 1.4rem;
+  }
+}
+
+.delivery-card__active-badge {
+  display      : inline-flex;
+  align-items  : center;
+  gap          : 6px;
+  padding      : 4px 10px;
+  background   : rgba(16, 185, 129, 0.1);
+  border       : 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 999px;
+  font-size    : 0.72rem;
+  font-weight  : 700;
+  color        : #059669;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.delivery-card__live-dot {
+  width        : 6px;
+  height       : 6px;
+  border-radius: 50%;
+  background   : #10b981;
+  box-shadow   : 0 0 6px rgba(16, 185, 129, 0.8);
+}
+
+.delivery-card__supporting-text {
+  margin     : 6px 0 0;
+  font-size  : 0.92rem;
+  font-weight: 500;
+  color      : $muted;
+  line-height: 1.35;
+}
+
+// ── City Chips Grid ───────────────────────────────────────────────────
+.delivery-card__cities-grid {
+  display  : flex;
+  flex-wrap: wrap;
+  gap      : 8px 10px;
+
+  @media (max-width: 480px) {
+    gap: 8px 8px;
+  }
+}
+
+.delivery-card__city-chip {
+  display      : inline-flex;
+  align-items  : center;
+  gap          : 7px;
+  padding      : 8px 14px;
+  background   : $chip-bg;
+  border       : 1.5px solid rgba(239, 32, 39, 0.12);
+  border-radius: 999px;
+  transition   : background 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  cursor       : default;
+
+  &:hover {
+    background  : #ffffff;
+    border-color: rgba(239, 32, 39, 0.35);
+    transform   : translateY(-2px);
+    box-shadow  : 0 4px 12px rgba(239, 32, 39, 0.1);
+
+    .delivery-card__chip-icon {
+      color: $brand-red;
+      transform: scale(1.1);
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 6px 12px;
+    gap    : 5px;
+  }
+}
+
+.delivery-card__chip-icon {
+  font-size  : 14px;
+  color      : #10b981;
+  flex-shrink: 0;
+  transition : color 0.2s ease, transform 0.2s ease;
+}
+
+.delivery-card__chip-text {
+  font-size  : 0.88rem;
+  font-weight: 700;
+  color      : $dark;
+  white-space: nowrap;
+
+  @media (max-width: 480px) {
+    font-size: 0.82rem;
+  }
+}

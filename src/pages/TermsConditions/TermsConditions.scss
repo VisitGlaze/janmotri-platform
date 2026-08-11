@@ -1,0 +1,46 @@
+@import "../PrivacyPolicy/PrivacyPolicy.scss";
+
+// Terms & Conditions specific overrides
+.terms-conditions-page {
+  .terms-bullets-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 12px 0 20px 0;
+
+    li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: $c-gray;
+      margin-bottom: 10px;
+
+      &::before {
+        content: "•";
+        position: absolute;
+        left: 6px;
+        top: -1px;
+        color: $c-red;
+        font-weight: 800;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .terms-numbered-list {
+    padding-left: 20px;
+    margin: 12px 0 20px 0;
+
+    li {
+      font-size: 15px;
+      line-height: 1.7;
+      color: $c-gray;
+      margin-bottom: 10px;
+
+      &::marker {
+        color: $c-red;
+        font-weight: 700;
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+@import "../../../components/shared/shared.scss";
+
+.about-gallery-section {
+  background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);
+  padding: 100px 0;
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+}
+
+.gallery-header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+
+  .shared-section-header {
+    margin-bottom: 0 !important;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+.gallery-view-all-link {
+  font-size: 16px;
+  font-weight: 700;
+  color: $c-red;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: 1px solid rgba($c-red, 0.15);
+  border-radius: 30px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba($c-red, 0.02);
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    color: #ffffff;
+    background: $c-red;
+    border-color: $c-red;
+    box-shadow: 0 8px 20px rgba($c-red, 0.2);
+
+    .arrow {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 300px;
+  gap: 28px;
+  margin-top: 30px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 260px;
+    gap: 20px;
+  }
+
+  @media (max-width: 580px) {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 240px;
+    gap: 16px;
+  }
+}
+
+.gallery-grid-item {
+  height: 100%;
+  width: 100%;
+
+  // Overwrite shared.scss Gallery Card Heights to be 100% of parent cell
+  .gallery-card-root {
+    height: 100%;
+    border-radius: 24px;
+  }
+
+  .gallery-image-wrap {
+    height: 100%;
+    
+    // Customize PrimeReact Image preview wrappers
+    .p-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+
+      span {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// Asymmetrical rules (only on desktops)
+@media (min-width: 993px) {
+  .gallery-item-0 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .gallery-item-1 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .gallery-item-2 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .gallery-item-3 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .gallery-item-4 {
+    grid-column: span 1;
+    grid-row: span 2; // Tall card spanning two rows!
+  }
+  .gallery-item-5 {
+    grid-column: span 2;
+    grid-row: span 1; // Wide card spanning two columns!
+  }
+}
+
+@media (max-width: 992px) and (min-width: 581px) {
+  .gallery-item-0 {
+    grid-column: span 2;
+  }
+  .gallery-item-5 {
+    grid-column: span 2;
+  }
+}

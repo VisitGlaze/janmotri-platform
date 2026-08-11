@@ -1,0 +1,46 @@
+@import "../../../components/shared/shared.scss";
+
+.faq-hero-section {
+  @extend .page-hero;
+  background: linear-gradient(135deg, #FFF1DF 0%, #FFFDF7 60%, #ffffff 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+
+  .hero-leaf-vector {
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    width: 280px;
+    height: 280px;
+    pointer-events: none;
+    z-index: 1;
+
+    @include respond-to('tablet') {
+      width: 160px;
+      height: 160px;
+      left: -8%;
+    }
+  }
+
+  .hero-text-wrap {
+    @extend .page-hero-content;
+
+    .hero-tagline {
+      @extend .page-hero-tagline;
+      color: #C29A38;
+    }
+
+    .hero-headline {
+      @extend .page-hero-title;
+      color: $c-dark;
+
+      .highlight-red {
+        color: $c-red;
+      }
+    }
+
+    .hero-subtext {
+      @extend .page-hero-subtitle;
+      color: $c-gray;
+    }
+  }
+}

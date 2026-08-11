@@ -1,0 +1,374 @@
+@import "../../../styles/index.scss";
+
+// Palette variables
+$primary-red: #ED1C24;
+$accent-yellow: #F6C400;
+$dark-text: #333333;
+$white-pure: #FFFFFF;
+$c-gray: #4b5563;
+
+.login-page-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 40px 20px;
+  padding-top: calc(var(--navbar-height, 90px) + 20px);
+}
+
+// Background overlay for readability
+.login-page-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.45); // clean overlay
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+// Content wrapper to raise content above overlay
+.login-content-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Modern Minimal White Glass Card
+.glass-login-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 410px;
+  padding: 44px 36px;
+  box-sizing: border-box;
+  text-align: center;
+  animation: cardFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @media (max-width: 480px) {
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+}
+
+.login-card-logo {
+  width: 110px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+.login-card-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: $dark-text;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.login-card-desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  line-height: 1.45;
+  margin-bottom: 28px;
+}
+
+.login-form-group {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.login-input-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #555555;
+  margin-bottom: 8px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+// Responsive Flag input wrap
+.phone-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2px 14px;
+  transition: all 0.3s ease;
+
+  &:focus-within {
+    border-color: $primary-red;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3.5px rgba($primary-red, 0.1);
+  }
+}
+
+.flag-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 12px;
+  border-right: 1.5px solid rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  user-select: none;
+  height: 40px;
+
+  .flag-icon {
+    width: 22px;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .flag-arrow {
+    font-size: 8px;
+    color: #888888;
+  }
+}
+
+.flag-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 6px 0;
+  min-width: 150px;
+  z-index: 100;
+  overflow: hidden;
+  animation: flagFade 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.flag-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  span {
+    font-size: 13px;
+    font-weight: 600;
+    color: $dark-text;
+  }
+
+  &:hover {
+    background: #f3f4f6;
+  }
+
+  &.active {
+    background: rgba($primary-red, 0.05);
+
+    span {
+      color: $primary-red;
+      font-weight: 700;
+    }
+  }
+}
+
+.phone-raw-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: $dark-text;
+  outline: none;
+
+  &::placeholder {
+    color: #CCCCCC;
+    font-weight: 500;
+  }
+}
+
+// CTA Button styling
+.login-cta-btn {
+  width: 100%;
+  background: $primary-red;
+  color: $white-pure;
+  border: none;
+  padding: 15px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba($primary-red, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba($primary-red, 0.35);
+    background: lighten($primary-red, 3%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #cccccc;
+    box-shadow: none;
+    transform: none;
+
+    &:hover {
+      background: #cccccc;
+      box-shadow: none;
+      transform: none;
+    }
+  }
+}
+
+// ── OTP Inputs and Truncate Fixes ──
+.otp-description {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.5;
+  margin-bottom: 28px;
+
+  strong {
+    color: $dark-text;
+    font-weight: 700;
+  }
+
+  .change-num-btn {
+    background: none;
+    border: none;
+    color: $primary-red;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    margin-left: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    display: inline-block;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.otp-inputs-grid-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.otp-inputs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  width: 100%;
+  max-width: 280px; // keep a tight layout but fully fluid inside columns
+  box-sizing: border-box;
+
+  @media (max-width: 360px) {
+    gap: 8px; // reduce gap on narrow viewports
+  }
+}
+
+.otp-box-input {
+  width: 100%;
+  height: 56px;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: $dark-text;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:focus {
+    border-color: $primary-red;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba($primary-red, 0.1);
+    transform: scale(1.05);
+  }
+}
+
+// Timer & Links
+.timer-container {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.resend-btn {
+  border: none;
+  background: transparent;
+  color: $primary-red;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+// Animations
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flagFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,235 @@
+@import "../../../components/shared/shared.scss";
+
+$det-border-radius: 24px;
+$det-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+$det-shadow: 0 15px 45px rgba(0, 0, 0, 0.03);
+
+.product-specs-section {
+  padding: 40px 0;
+  background-color: #ffffff;
+
+  .specs-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+
+    @media (max-width: 868px) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .spec-card-container {
+    background: #ffffff;
+    border-radius: $det-border-radius;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: $det-shadow;
+    padding: 35px;
+    transition: $det-transition;
+
+    &:hover {
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.05);
+      border-color: rgba($c-gold, 0.2);
+    }
+  }
+
+  .spec-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+
+    .spec-icon-symbol {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background-color: #FFF1DF; // Light orange/yellow
+      color: #C29A38; // Rich gold text
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .spec-card-title {
+      font-size: clamp(18px, 1.5vw, 22px);
+      font-weight: 800;
+      color: $c-dark;
+      margin: 0;
+    }
+  }
+
+  // Details List Bullets
+  .spec-details-bullets-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .bullet-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #C29A38;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .bullet-text-content {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: $c-gray;
+      margin: 0;
+      font-weight: 500;
+    }
+  }
+
+  // Supplier Details Block
+  .supplier-brand-card {
+    background-color: #FFFDF7;
+    border: 1px solid rgba($c-gold, 0.12);
+    border-radius: 14px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .supplier-logo-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    box-sizing: border-box;
+
+    .supplier-logo {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .supplier-name-wrap {
+    .supplier-sublabel {
+      font-size: 11px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .supplier-brand-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: $c-dark;
+      margin: 0;
+    }
+  }
+
+  // Quality check rows
+  .quality-rows-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .quality-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    gap: 20px;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .row-label {
+      font-size: 13.5px;
+      color: $c-gray;
+      font-weight: 600;
+    }
+
+    .row-value-bold {
+      font-size: 14px;
+      font-weight: 800;
+      color: $c-dark;
+      text-align: right;
+
+      &.highlight-green {
+        color: #10b981; // green
+      }
+    }
+  }
+
+  // MFG and EXP Dates Layout
+  .mfg-exp-dates-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  .date-block {
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    gap: 20px;
+
+    .date-label {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: $c-gray;
+
+      &.text-red {
+        color: $c-red;
+      }
+    }
+
+    .date-value-bold {
+      font-size: 15px;
+      font-weight: 800;
+      color: $c-dark;
+
+      &.text-red {
+        color: $c-red;
+      }
+    }
+
+    &.mfg-date-block {
+      background-color: #f9fafb; // Light gray
+    }
+
+    &.exp-date-block {
+      background-color: #FEF2F2; // Light warm red
+      border-color: rgba($c-red, 0.08);
+    }
+  }
+}

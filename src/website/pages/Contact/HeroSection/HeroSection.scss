@@ -1,0 +1,63 @@
+@import "../../../components/shared/shared.scss";
+
+.contact-hero-section {
+  position: relative;
+  height: clamp(300px, 40vh, 420px);
+  background: linear-gradient(135deg, #FFF1DF 0%, #FFFDF7 60%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 450px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+
+  .hero-leaf-vector {
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    width: 280px;
+    height: 280px;
+    pointer-events: none;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      width: 160px;
+      height: 160px;
+      left: -8%;
+    }
+  }
+
+  .hero-text-wrap {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    padding-top: calc(var(--navbar-height) + 20px);
+    margin: 0 auto;
+
+    .hero-tagline {
+      display: inline-block;
+      font-size: clamp(12px, 1.1vw, 14px);
+      font-weight: 800;
+      color: #C29A38;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 16px;
+    }
+
+    .hero-headline {
+      font-size: clamp(30px, 4.5vw, 54px);
+      font-weight: 800;
+      color: $c-red;
+      line-height: 1.15;
+      margin: 0 0 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtext {
+      font-size: clamp(15px, 1.5vw, 19px);
+      color: $c-gray;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+}

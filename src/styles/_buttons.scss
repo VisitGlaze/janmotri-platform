@@ -1,0 +1,150 @@
+@import "variables";
+@import "mixins";
+
+// Global Button Classes
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 10px 10px 24px;
+  border: none;
+  border-radius: 60px;
+  background: $c-red;
+  color: #ffffff;
+  font-size: clamp(14px, 1.2vw, 17px);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba($c-red, 0.25);
+  @include transition-smooth;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba($c-red, 0.35);
+    background: #ee3239;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $c-white;
+  color: $c-dark;
+  border: 1.5px solid $c-light-gray;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 800;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  cursor: pointer;
+  @include transition-smooth;
+
+  &:hover {
+    background-color: $c-light-gray;
+    border-color: darken($c-light-gray, 5%);
+  }
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: $c-gray;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  @include transition-smooth;
+
+  &:hover {
+    border-color: $c-red;
+    color: $c-red;
+  }
+}
+
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $c-error;
+  color: $c-white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  @include transition-smooth;
+
+  &:hover {
+    background-color: darken($c-error, 8%);
+    box-shadow: 0 4px 15px rgba($c-error, 0.2);
+  }
+}
+
+.btn-success {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $c-success;
+  color: $c-white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  @include transition-smooth;
+
+  &:hover {
+    background-color: darken($c-success, 8%);
+    box-shadow: 0 4px 15px rgba($c-success, 0.2);
+  }
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  @include flex-center;
+  cursor: pointer;
+  @include transition-smooth;
+}
+
+// Rectangular block buttons (Submit, Feedback, profile save, message send)
+.btn-rect-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $c-red;
+  color: $c-white;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba($c-red, 0.2);
+  @include transition-smooth;
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: #ee3239;
+    box-shadow: 0 10px 25px rgba($c-red, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

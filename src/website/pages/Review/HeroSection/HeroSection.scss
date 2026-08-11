@@ -1,0 +1,44 @@
+@import "../../../components/shared/shared.scss";
+
+.review-hero-section {
+  @extend .page-hero;
+  background: linear-gradient(135deg, #FFF1DF 0%, #FFFDF7 60%, #ffffff 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+
+  // Soft illustration leaves on the left
+  .hero-leaf-vector {
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    width: 280px;
+    height: 280px;
+    pointer-events: none;
+    z-index: 1;
+
+    @include respond-to('tablet') {
+      width: 160px;
+      height: 160px;
+      left: -8%;
+    }
+  }
+
+  .hero-text-wrap {
+    @extend .page-hero-content;
+
+    .hero-tagline {
+      @extend .page-hero-tagline;
+      color: #C29A38; // Rich gold/bronze color
+    }
+
+    .hero-headline {
+      @extend .page-hero-title;
+      color: $c-red;
+      text-shadow: 0 2px 10px rgba($c-red, 0.03);
+    }
+
+    .hero-subtext {
+      @extend .page-hero-subtitle;
+      color: #b91c1c; // Deep warm red
+    }
+  }
+}

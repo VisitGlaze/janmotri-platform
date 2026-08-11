@@ -1,0 +1,376 @@
+@import "../../../styles/index.scss";
+
+:root {
+  --navbar-height: 108px;
+
+  @media (max-width: 991px) {
+    --navbar-height: 72px;
+  }
+}
+
+
+.shared-container {
+  max-width: 1400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.shared-section-header {
+  margin-bottom: clamp(35px, 5vw, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &.text-center {
+    align-items: center;
+    text-align: center;
+  }
+
+  .shared-subtitle {
+    display: inline-block;
+    color: $c-red;
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+
+  .shared-title {
+    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: $c-dark;
+    margin: 0 0 16px;
+    line-height: 1.25;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .shared-heading-line {
+    width: 80px;
+    height: 4px;
+    background: $c-gold;
+    border-radius: 10px;
+  }
+}
+
+// Reusable Primary Button styling
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 10px 10px 24px;
+  border: none;
+  border-radius: 60px;
+  background: $c-red;
+  color: #ffffff;
+  font-size: clamp(14px, 1.2vw, 17px);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba($c-red, 0.25);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba($c-red, 0.35);
+    background: #ee3239;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  .btn-label {
+    line-height: 1;
+  }
+
+  .btn-arrow-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $c-gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $c-red;
+    font-size: 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+
+    .primary-btn:hover & {
+      transform: translateX(3px);
+    }
+  }
+}
+
+// ── Process Card Styles ──
+.process-card-root {
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba($c-red, 0.08) !important;
+    border-color: rgba($c-red, 0.15) !important;
+
+    .process-card-img {
+      transform: scale(1.06);
+    }
+  }
+
+  .p-card-body {
+    padding: 24px !important;
+  }
+}
+
+.process-card-image-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: #f3f4f6;
+
+  .process-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .process-card-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $c-red;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba($c-red, 0.3);
+    z-index: 10;
+  }
+}
+
+.process-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: $c-dark;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.process-card-desc {
+  font-size: 15px;
+  color: $c-gray;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// ── Feature Card Styles ──
+.feature-card-root {
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba($c-gold, 0.1) !important;
+    border-color: rgba($c-gold, 0.25) !important;
+  }
+
+  .p-card-body {
+    padding: 28px !important;
+  }
+}
+
+.feature-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  .feature-card-icon {
+    font-size: 32px;
+    color: $c-red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba($c-red, 0.05);
+    border-radius: 14px;
+  }
+
+  .feature-card-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+}
+
+.feature-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: $c-dark;
+  margin: 0 0 12px;
+  line-height: 1.35;
+}
+
+.feature-card-desc {
+  font-size: 15px;
+  color: $c-gray;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// ── Gallery Card Styles ──
+.gallery-card-root {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+
+  .p-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  }
+
+  &:hover {
+    .p-image img {
+      transform: scale(1.08);
+    }
+
+    .gallery-card-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.gallery-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 80%);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 2;
+
+  .gallery-card-title {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// ── Instagram Card Styles ──
+.instagram-card-root {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.instagram-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .instagram-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    .instagram-img {
+      transform: scale(1.08);
+    }
+
+    .instagram-card-overlay {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+.instagram-card-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 100%;
+  height: 100%;
+  background: rgba($c-red, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+
+  .instagram-icon {
+    color: #ffffff;
+    font-size: 28px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+
+
+

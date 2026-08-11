@@ -1,0 +1,502 @@
+@import "../../../components/shared/shared.scss";
+
+.checkout-form-container {
+  width: 100%;
+  background: #ffffff;
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.02);
+
+  @media (max-width: 600px) {
+    padding: 32px 20px;
+  }
+
+  .form-group-section {
+    width: 100%;
+
+    &.mt-6 {
+      margin-top: 40px !important;
+    }
+
+    .input-field-wrap, .grid-2-cols, .checkbox-wrap {
+      margin-top: 24px !important;
+    }
+  }
+
+  .section-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: $c-dark;
+    margin: 0 0 16px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  .section-subtitle {
+    font-size: 13.5px;
+    color: #6b7280;
+    margin: 0 0 28px !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
+
+  // Input Field Container Wrapper
+  .input-field-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+
+    .input-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #4b5563;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 10px;
+      border: 1.5px solid #e5e7eb;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      color: $c-dark;
+      background-color: #fafafa;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &::placeholder {
+        color: #9ca3af;
+      }
+
+      &:focus {
+        border-color: $c-red;
+        background-color: #ffffff;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba($c-red, 0.06);
+      }
+    }
+  }
+
+  // Grids
+  .grid-2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  // Checkbox Container
+  .checkbox-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+
+    .form-checkbox {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      accent-color: $c-red;
+      cursor: pointer;
+    }
+
+    .checkbox-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b7280;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+
+  // ── Vertical list of payment option rows ──
+  .payment-options-vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .payment-row-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1.5px solid #e5e7eb;
+      padding: 18px 24px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+
+      @media (max-width: 480px) {
+        padding: 16px;
+      }
+
+      &:hover {
+        background: #fafaf9;
+        border-color: rgba($c-red, 0.15);
+      }
+
+      &.selected {
+        border-color: $c-red;
+        box-shadow: 0 8px 25px rgba($c-red, 0.04);
+        background: #ffffff;
+      }
+
+      .row-header-wrap {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        width: 100%;
+      }
+
+      .decor-icon-box {
+        width: 42px;
+        height: 42px;
+        background: rgba($c-red, 0.08);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $c-red;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
+      .method-meta-text {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+
+        .method-title {
+          font-size: 14.5px;
+          font-weight: 800;
+          color: $c-dark;
+          margin: 0;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .method-subtext {
+          font-size: 12.5px;
+          color: #6b7280;
+          margin: 3px 0 0;
+          font-family: 'Poppins', sans-serif;
+          font-weight: 500;
+        }
+
+        .badge-wrapper-row {
+          display: flex;
+          margin-top: 4px;
+        }
+
+        .pincode-available-badge {
+          background: #fffcf0;
+          border: 1px solid rgba($c-gold, 0.3);
+          color: #b45309;
+          font-size: 10.5px;
+          font-weight: 700;
+          padding: 3px 10px;
+          border-radius: 20px;
+          display: inline-block;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+      }
+
+      .row-right-radio {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .radio-circle {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 2px solid #d1d5db;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.25s;
+
+          &.checked {
+            border-color: $c-red;
+            
+            &::after {
+              content: '';
+              width: 10px;
+              height: 10px;
+              background-color: $c-red;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+
+      // Expanded block styling
+      .method-expand-body {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      // 1. Referral Expand Input
+      .referral-input-panel {
+        padding-top: 18px;
+        margin-top: 16px;
+        border-top: 1.5px dashed #f3f4f6;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .expand-input-label {
+          font-size: 12.5px;
+          font-weight: 700;
+          color: #4b5563;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .input-btn-split {
+          display: flex;
+          gap: 12px;
+          width: 100%;
+
+          @media (max-width: 480px) {
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          .expand-input {
+            flex: 1;
+            height: 46px;
+            background-color: #fafafa;
+          }
+
+          .eligibility-check-btn {
+            background-color: $c-red;
+            color: #ffffff;
+            border: none;
+            padding: 0 20px;
+            height: 46px;
+            border-radius: 10px;
+            font-size: 13.5px;
+            font-weight: 800;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba($c-red, 0.15);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+
+            &:hover {
+              background-color: #ee3239;
+              transform: translateY(-1px);
+            }
+          }
+        }
+
+        .referral-warning-note {
+          color: #ef4444;
+          font-size: 11.5px;
+          font-weight: 700;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          margin: 0;
+        }
+      }
+
+      // 2. UPI Expand Details
+      .upi-qrcode-panel {
+        padding-top: 18px;
+        margin-top: 16px;
+        border-top: 1.5px dashed #f3f4f6;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 24px;
+        align-items: center;
+
+        @media (max-width: 600px) {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .upi-instructions-col {
+          display: flex;
+          flex-direction: column;
+
+          .instructions-header {
+            font-size: 14px;
+            font-weight: 800;
+            color: $c-dark;
+            margin: 0 0 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+          }
+
+          .instructions-list {
+            padding-left: 16px;
+            margin: 0 0 18px;
+            font-size: 12.5px;
+            line-height: 1.6;
+            color: #4b5563;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+
+            li {
+              margin-bottom: 4px;
+            }
+          }
+
+          .supported-upi-brands {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            .brand-label {
+              font-size: 10.5px;
+              font-weight: 800;
+              color: #9ca3af;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              font-family: 'Plus Jakarta Sans', sans-serif;
+            }
+
+            .brand-logos-row {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              flex-wrap: wrap;
+
+              .upi-brand {
+                font-size: 11px;
+                font-weight: 800;
+                padding: 3px 8px;
+                border-radius: 6px;
+                background-color: #f3f4f6;
+                color: #4b5563;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+
+                &.u-logo { color: #2563eb; background: #eff6ff; }
+                &.g-logo { color: #059669; background: #ecfdf5; }
+                &.ph-logo { color: #7c3aed; background: #f5f3ff; }
+                &.pa-logo { color: #0284c7; background: #f0f9ff; }
+              }
+            }
+          }
+        }
+
+        .qrcode-display-col {
+          display: flex;
+          justify-content: center;
+
+          .qr-box-border {
+            border: 1.5px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 10px;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+
+            .scan-here-text {
+              font-size: 10.5px;
+              font-weight: 800;
+              color: #6b7280;
+              margin-top: 6px;
+              font-family: 'Plus Jakarta Sans', sans-serif;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Subtle back navigation
+  .subtle-back-action-wrap {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .subtle-back-link-btn {
+    background: transparent;
+    border: none;
+    font-size: 13.5px;
+    color: #6b7280;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 0;
+
+    &:hover {
+      color: $c-red;
+    }
+  }
+
+  // Error alert styling
+  .error-alert-bar {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: #fef2f2;
+    border-left: 4px solid #ef4444;
+    color: #b91c1c;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  // Review summaries lists
+  .review-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .review-info-card {
+      border: 1px solid #f3f4f6;
+      border-radius: 12px;
+      padding: 16px;
+      background: #fafaf7;
+
+      .card-header {
+        border-bottom: 1.5px solid #f3f4f6;
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+
+        .card-heading {
+          font-size: 13.5px;
+          font-weight: 800;
+          color: $c-red;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+      }
+
+      .info-row {
+        display: flex;
+        align-items: flex-start;
+        font-size: 13.5px;
+        line-height: 1.45;
+
+        .info-label {
+          font-weight: 800;
+          color: #4b5563;
+          width: 90px;
+          flex-shrink: 0;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .info-value {
+          color: $c-dark;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,255 @@
+@import "../../../components/shared/shared.scss";
+
+.about-vision-mission {
+  background: linear-gradient(180deg, #f7f6f2 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+}
+
+.vision-mission-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 80px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+.vm-image-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+// ── Rotating Decorative Gold Rings ──
+.vm-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vm-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.vm-ring-1 {
+  width: 110%;
+  height: 110%;
+  border: 1px dashed rgba($c-gold, 0.45);
+  animation: spin-clockwise 25s linear infinite;
+}
+
+.vm-ring-2 {
+  width: 105%;
+  height: 105%;
+  border: 1px solid rgba($c-red, 0.15);
+  animation: spin-counter-clockwise 35s linear infinite;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 12px;
+    height: 12px;
+    background: $c-gold;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba($c-gold, 0.8);
+  }
+}
+
+.vm-ring-3 {
+  width: 101%;
+  height: 101%;
+  border: 2px solid rgba($c-gold, 0.25);
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.vm-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+  border: 8px solid #ffffff;
+  background: #ffffff;
+  z-index: 2;
+
+  .vm-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .vm-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 50%, rgba($c-red, 0.05) 100%);
+    pointer-events: none;
+  }
+
+  &:hover {
+    .vm-photo {
+      transform: scale(1.06) rotate(1deg);
+    }
+  }
+}
+
+.vm-cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+// ── Vision & Mission Card Layouts ──
+.vm-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 35px 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03),
+              inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  gap: 24px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @media (max-width: 480px) {
+    padding: 24px;
+    gap: 16px;
+  }
+
+  &:hover {
+    transform: translateY(-5px) translateX(4px);
+    box-shadow: 0 20px 45px rgba($c-red, 0.05),
+                inset 0 0 0 1px rgba($c-gold, 0.2);
+    border-color: rgba($c-gold, 0.3);
+
+    .card-indicator {
+      transform: scaleY(1.05);
+      box-shadow: 0 0 12px rgba($c-gold, 0.5);
+    }
+
+    &.card-mission .card-indicator {
+      box-shadow: 0 0 12px rgba($c-red, 0.5);
+    }
+
+    .vm-card-backdrop-glow {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  .card-indicator {
+    width: 6px;
+    height: auto;
+    background: linear-gradient(180deg, $c-gold 0%, #ffaa00 100%);
+    border-radius: 20px;
+    flex-shrink: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &.card-mission .card-indicator {
+    background: linear-gradient(180deg, $c-red 0%, #cc000a 100%);
+  }
+
+  .vm-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $c-gray;
+    letter-spacing: 0.1em;
+  }
+
+  .card-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: $c-dark;
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .card-text {
+    font-size: 15.5px;
+    color: $c-gray;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .vm-card-backdrop-glow {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba($c-red, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s ease;
+    z-index: 1;
+  }
+}
+
+// ── Custom Animations ──
+@keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-counter-clockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+    border-color: rgba($c-gold, 0.4);
+  }
+}

@@ -1,0 +1,26 @@
+@import "../../components/shared/shared.scss";
+@import "./HeroSection/HeroSection.scss";
+@import "./FeedbackFormSection/FeedbackFormSection.scss";
+@import "./TestimonialsSection/TestimonialsSection.scss";
+
+.review-page-root {
+  background-color: #ffffff;
+  color: $c-dark;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+}
+
+.review-main-content {
+  position: relative;
+}

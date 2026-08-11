@@ -1,0 +1,132 @@
+@import "../../../components/shared/shared.scss";
+
+.checkout-steps-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+
+  .steps-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .step-item-wrap {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    position: relative;
+
+    &:last-child {
+      flex: 0; // Last step doesn't grow or need a trailing line
+    }
+  }
+
+  .step-line-container {
+    position: absolute;
+    top: 20px;
+    left: calc(0% + 50px);
+    right: calc(0% + 30px);
+    height: 3px;
+    z-index: 1;
+    transform: translateY(-50%);
+
+    @media (max-width: 600px) {
+      left: calc(0% + 30px);
+      right: calc(0% + 15px);
+      height: 2px;
+    }
+
+    .step-line-bg {
+      position: absolute;
+      inset: 0;
+      background-color: #f3f4f6;
+      border-radius: 4px;
+    }
+
+    .step-line-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: $c-red;
+      border-radius: 4px;
+    }
+  }
+
+  .step-circle-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+    position: relative;
+    cursor: default;
+  }
+
+  .step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #e5e7eb;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+
+    @media (max-width: 600px) {
+      width: 32px;
+      height: 32px;
+    }
+
+    .step-num {
+      font-size: 14px;
+      font-weight: 800;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+
+      @media (max-width: 600px) {
+        font-size: 12px;
+      }
+    }
+
+    &.active {
+      box-shadow: 0 6px 15px rgba($c-red, 0.25);
+      color: #f3f4f6;
+    }
+
+    &.current {
+      border-color: $c-red;
+      box-shadow: 0 6px 15px rgba($c-red, 0.35);
+    }
+  }
+
+  .step-label {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #9ca3af;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    transition: color 0.3s;
+
+    @media (max-width: 600px) {
+      font-size: 10px;
+      white-space: normal;
+      max-width: 70px;
+      line-height: 1.25;
+    }
+
+    &.active {
+      color: $c-dark;
+    }
+
+    &.current {
+      color: $c-red;
+      font-weight: 800;
+    }
+  }
+}

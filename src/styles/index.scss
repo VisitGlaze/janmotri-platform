@@ -1,0 +1,40 @@
+@import "variables";
+@import "mixins";
+@import "spacing";
+@import "shadows";
+@import "typography";
+@import "animations";
+@import "buttons";
+@import "forms";
+@import "cards";
+@import "tables";
+@import "hero";
+@import "product";
+@import "badges";
+@import "containers";
+@import "utilities";
+
+/* ─────────────────────────────────────────────────────────
+   SCROLL CONTAINER RULE — DO NOT CHANGE
+   ─────────────────────────────────────────────────────────
+   Per the CSS Overflow spec: if `html` has any non-visible
+   overflow value, the browser transfers scroll ownership
+   from html/window → body. This causes:
+     • window.scrollY always returns 0
+     • window.scrollTo() has no visible effect
+     • scrollRestoration = "manual" stops working
+     • Hero section appears as an independent scroll area
+   
+   FIX: overflow-x must ONLY be on body, never html.
+   ─────────────────────────────────────────────────────── */
+
+html {
+  max-width: 100%;
+  /* overflow: intentionally NOT set — html must remain the
+     natural scroll container so window.scrollY works correctly */
+}
+
+body {
+  overflow-x: hidden; /* safe here — does not reassign scroll container */
+  max-width: 100%;
+}

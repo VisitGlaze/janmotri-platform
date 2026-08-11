@@ -1,0 +1,52 @@
+@import "variables";
+@import "mixins";
+
+.page-hero {
+  position: relative;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+
+  @include respond-to('tablet') {
+    height: clamp(300px, 40vh, 420px);
+  }
+
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    margin: 0 auto;
+    padding-top: calc(var(--navbar-height) + 30px);
+
+    .page-hero-title {
+      font-size: clamp(30px, 4.5vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .page-hero-subtitle {
+      font-size: clamp(15px, 1.5vw, 19px);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .page-hero-tagline {
+      display: inline-block;
+      font-size: clamp(12px, 1.1vw, 14px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 16px;
+    }
+  }
+}
