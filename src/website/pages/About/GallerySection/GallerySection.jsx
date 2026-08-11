@@ -22,11 +22,11 @@ const GallerySection = () => {
 
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.95, y: 15 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } 
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
@@ -35,13 +35,13 @@ const GallerySection = () => {
       <Container>
         <div className="gallery-header-wrap">
           <SectionTitle subtitle={t("about.gallery.subtitle", subtitle)} title={t("about.gallery.title", title)} />
-          
-          <a href="#/gallery" className="gallery-view-all-link">
+
+          {/* <a href="#/gallery" className="gallery-view-all-link">
             {t("common.viewAll", linkText)} <span className="arrow">→</span>
-          </a>
+          </a> */}
         </div>
-        
-        <motion.div 
+
+        <motion.div
           className="gallery-grid"
           variants={containerVariants}
           initial="hidden"
@@ -49,8 +49,8 @@ const GallerySection = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           {items.map((item, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               variants={cardVariants}
               className={`gallery-grid-item gallery-item-${index}`}
             >
