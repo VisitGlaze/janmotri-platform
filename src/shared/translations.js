@@ -176,12 +176,12 @@ export const translations = {
             desc: "Multi-stage cleaning. Pods are thoroughly cleaned and sorted to select only the healthiest, premium kernels."
           },
           {
-            title: "Expeller Machine",
-            desc: "Our oil is not cold pressed or wood pressed but is pure oil made by an expeller machine."
+            title: "Deshi Dhani",
+            desc: "Our oil is not cold pressed or wood pressed but is pure oil made by an Deshi Dhani."
           },
           {
             title: "Filtration Process",
-            desc: "Double filtered quality assured castor oil produced from cotton cloth by expeller machine."
+            desc: "Double filtered quality assured castor oil produced from cotton cloth by Deshi Dhani."
           },
           {
             title: "Packaging",
@@ -334,8 +334,8 @@ export const translations = {
         steps: [
           { title: "Seed Selection", desc: "Sourcing premium Saurashtra G20 peanuts direct from organic farms." },
           { title: "Purification", desc: "Double sorting and air filtration to remove shells and damaged seeds." },
-          { title: "Expeller Machine", desc: "Our oil is not cold pressed or wood pressed but is pure oil made by an expeller machine." },
-          { title: "Filtration Process", desc: "Double filtered quality assured castor oil produced from cotton cloth by expeller machine." },
+          { title: "Deshi Dhani", desc: "Our oil is not cold pressed or wood pressed but is pure oil made by an Deshi Dhani." },
+          { title: "Filtration Process", desc: "Double filtered quality assured castor oil produced from cotton cloth by Deshi Dhani." },
           { title: "Quality Check", desc: "Rigorous laboratory testing for acid value, moisture, and chemical-free assurance." },
           { title: "Packaging & Delivery", desc: "Sealing in food-grade, leak-proof tin cans and shipping fresh to your doorstep." }
         ]
@@ -382,7 +382,7 @@ export const translations = {
       subtitle: "Janmotri: Confluence of purity and taste. Straight from the farm to your kitchen.",
       productsList: {
         p1: {
-          name: "Janmotri Groundnut Oil (5 liters)",
+          name: "Janmotri Groundnut Oil (5 L - Family Pack)",
           shortName: "5 L - Family Pack",
           desc: [
             "Janmotri 5 Liter Groundnut Oil is the epitome of purity and health, formulated with utmost care to bring you the oil as close to nature as possible.",
@@ -392,7 +392,7 @@ export const translations = {
           qc: "Clean and safe processing"
         },
         p2: {
-          name: "Janmotri Groundnut Oil (15 kg)",
+          name: "Janmotri Groundnut Oil (15 Kg – Jumbo Pack)",
           shortName: "15 Kg – Jumbo Pack",
           desc: [
             "Janmotri 15Kg Groundnut Oil is the epitome of purity and health, formulated with utmost care to bring you the oil as close to nature as possible.",
@@ -402,8 +402,8 @@ export const translations = {
           qc: "Clean and safe processing"
         },
         p3: {
-          name: "Janmotri Groundnut Oil (15 liters)",
-          shortName: "15 L – Value Saver Pack",
+          name: "Janmotri Groundnut Oil (15 L - Family Pack)",
+          shortName: "15 L - Family Pack",
           desc: [
             "Janmotri 15 Liter Groundnut Oil is the epitome of purity and health, formulated with utmost care to bring you the oil as close to nature as possible.",
             "Our peanut oil is extracted from high-quality peanuts, ensuring a rich, nutty flavor that enhances the flavor of your dishes."
@@ -412,7 +412,7 @@ export const translations = {
           qc: "Clean and safe processing"
         },
         p4: {
-          name: "Janmotri Groundnut Oil (500 ml – Mini Pack)",
+          name: "Janmotri Groundnut Oil (500 ml - Trial Pack)",
           shortName: "500 ml - Trial Pack",
           desc: [
             "Janmotri 500ml Groundnut Oil Bottle is the epitome of purity and health, formulated with utmost care to bring you the oil as close to nature as possible.",
@@ -422,7 +422,7 @@ export const translations = {
           qc: "Clean and safe processing"
         },
         p5: {
-          name: "Janmotri Groundnut Oil (1 Liter Bottle)",
+          name: "Janmotri Groundnut Oil (1 L - Mini Pack)",
           shortName: "1 L - Mini Pack",
           desc: [
             "Janmotri 1 Liter Grouandnut Oil Bottle is the epitome of purity and health, formulated with utmost care to bring you the oil as close to nature as possible.",
@@ -1010,12 +1010,12 @@ export const translations = {
             desc: "બહુ-તબક્કાની સફાઈ. માત્ર સૌથી આરોગ્યપ્રદ, પ્રીમિયમ દાણા પસંદ કરવા માટે મગફળીને સંપૂર્ણપણે સાફ અને સૉર્ટ કરવામાં આવે છે."
           },
           {
-            title: "એક્સપેલર મશીન",
-            desc: "અમારું તેલ કોલ્ડ પ્રેસ કે વૂડ પ્રેસ નથી પરંતુ એક્સપેલર મશીન દ્વારા બનાવેલ શુદ્ધતા વાળું છે."
+            title: "દેશી ધાણી",
+            desc: "અમારું તેલ કોલ્ડ પ્રેસ કે વૂડ પ્રેસ નથી પરંતુ દેશી ધાણી મશીન દ્વારા બનાવેલ શુદ્ધતા વાળું છે."
           },
           {
             title: "ફિલ્ટરેશન પ્રક્રિયા",
-            desc: "એક્સપેલર મશીન દ્વારા ઉત્પાદિત કોટન ના કપડાંમાંથી ડબલ ફિલ્ટર કરેલ ગુણવત્તાની ખાતરી  સાથે તૈયાર કરેલું શીંગ તેલ."
+            desc: "દેશી ધાણી મશીન દ્વારા ઉત્પાદિત કોટન ના કપડાંમાંથી ડબલ ફિલ્ટર કરેલ ગુણવત્તાની ખાતરી  સાથે તૈયાર કરેલું શીંગ તેલ."
           },
           {
             title: "પ્રીમિયમ પેકેજિંગ",
@@ -1136,8 +1136,8 @@ export const translations = {
         steps: [
           { title: "પસંદ કરેલી G-20 મગફળી", desc: "વિશ્વસનીય ખેડૂતો પાસેથી પસંદ કરાયેલી ઉચ્ચ ગુણવત્તાની G-20 મગફળીથી દરેક ઉત્પાદનની શરૂઆત થાય છે." },
           { title: "શુદ્ધીકરણ પ્રક્રિયા", desc: "ધૂળ, ફોતરાં તથા અન્ય અશુદ્ધિઓ દૂર કરીને આધુનિક સફાઈ પ્રક્રિયા દ્વારા ઉચ્ચ ગુણવત્તાવાળા શીંગની પસંદગી અને તૈયારી કરવામાં આવે છે." },
-          { title: "એક્સપેલર મશીન", desc: "પસંદગીના શીંગમાંથી આધુનિક એક્સપેલર ટેક્નોલોજી દ્વારા ગુણવત્તાસભર, સ્વચ્છ અને શુદ્ધ શીંગતેલ તૈયાર કરવામાં આવે છે." },
-          { title: "ફિલ્ટરેશન પ્રક્રિયા", desc: "એક્સપેલર મશીનથી તૈયાર થયેલ શીંગતેલને કોટનના કપડાથી ડબલ ફિલ્ટર કરવામાં આવે છે, જેથી તેની શુદ્ધતા, સ્વચ્છતા અને ગુણવત્તા જળવાઈ રહે." },
+          { title: "દેશી ધાણી", desc: "પસંદગીના શીંગમાંથી આધુનિક દેશી ધાણી મશીન દ્વારા ગુણવત્તાસભર, સ્વચ્છ અને શુદ્ધ શીંગતેલ તૈયાર કરવામાં આવે છે." },
+          { title: "ફિલ્ટરેશન પ્રક્રિયા", desc: "દેશી ધાણી મશીનથી તૈયાર થયેલ શીંગતેલને કોટનના કપડાથી ડબલ ફિલ્ટર કરવામાં આવે છે, જેથી તેની શુદ્ધતા, સ્વચ્છતા અને ગુણવત્તા જળવાઈ રહે." },
           { title: "પ્રીમિયમ પેકેજિંગ", desc: "અમારું શીંગતેલ ઉચ્ચ ગુણવત્તાવાળા ફૂડ-ગ્રેડ પેકેજિંગમાં કાળજીપૂર્વક પેક કરવામાં આવે છે, જેથી તેની શુદ્ધતા, તાજગી, સુરક્ષા અને ગુણવત્તા લાંબા સમય સુધી જળવાઈ રહે." },
           { title: "ગ્રાહક સુવિધા", desc: "ઝડપી સહાય, સરળ ઓર્ડર પ્રક્રિયા અને ભરોસાપાત્ર સુવિધા દ્વારા અમે દરેક ગ્રાહકોના વિશ્વાસની ખાતરી કરીએ છીએ." }
         ]
@@ -1217,28 +1217,28 @@ export const translations = {
       subtitle: "જન્મોત્રી: શુદ્ધતા અને સ્વાદનો સંગમ. સીધું ખેતરમાંથી તમારા રસોડા સુધી.",
       productsList: {
         p1: {
-          name: "જન્મોત્રી શીંગતેલ (૫ લીટર)",
-          shortName: "૫ લિટર - વેલ્યુ સેવર પેક",
+          name: "જન્મોત્રી શીંગતેલ (૫ લીટર - વેલ્યુ સેવર પેક)",
+          shortName: "૫ લીટર - વેલ્યુ સેવર પેક",
           desc: [
-            "જન્મોત્રી ૫ લીટર શીંગતેલ શુદ્ધતા અને આરોગ્યનું પ્રતીક છે, જે તમારા માટે કુદરતની શક્ય તેટલી નજીકનું તેલ લાવવા માટે અત્યંત કાળજીપૂર્વક તૈયાર કરવામાં આવ્યું છે.",
+            "'જન્મોત્રી' ૫ લીટર શીંગતેલ એ શુદ્ધતા અને સ્વાસ્થ્યનું ઉત્તમ પ્રતીક છે. કુદરતી પોષકતત્વો જળવાઈ રહે તે માટે તેને અત્યંત કાળજીપૂર્વક તૈયાર કરવામાં આવ્યું છે.",
             "અમારું શીંગતેલ ઉચ્ચ ગુણવત્તાની મગફળીમાંથી બનાવવામાં આવે છે, જે તમારી વાનગીઓનો સ્વાદ વધારવા માટે અસલી સુગંધ આપે છે."
           ],
           source: "સ્થાનિક સ્તરે મેળવેલી પ્રીમિયમ મગફળી પર ગુણવત્તા ચકાસણી",
           qc: "સ્વચ્છ અને સલામત પ્રોસેસિંગ"
         },
         p2: {
-          name: "જન્મોત્રી શીંગતેલ (૧૫ કિલો)",
+          name: "જન્મોત્રી શીંગતેલ (૧૫ કિલો - જમ્બો પેક)",
           shortName: "૧૫ કિલો - જમ્બો પેક",
           desc: [
-            "જન્મોત્રી ૧૫ કિલો શીંગતેલ શુદ્ધતા અને આરોગ્યનું પ્રતીક છે, જે તમારા માટે કુદરતની શક્ય તેટલી નજીકનું તેલ લાવવા માટે અત્યંત કાળજીપૂર્વક તૈયાર કરવામાં આવ્યું છે.",
+            "'જન્મોત્રી' ૧૫ કિલો શીંગતેલ એ શુદ્ધતા અને સ્વાસ્થ્યનું ઉત્તમ પ્રતીક છે. કુદરતી પોષકતત્વો જળવાઈ રહે તે માટે તેને અત્યંત કાળજીપૂર્વક તૈયાર કરવામાં આવ્યું છે.",
             "અમારું શીંગતેલ ઉચ્ચ ગુણવત્તાની મગફળીમાંથી બનાવવામાં આવે છે, જે તમારી વાનગીઓનો સ્વાદ વધારવા માટે અસલી સુગંધ આપે છે."
           ],
           source: "સ્થાનિક સ્તરે મેળવેલી પ્રીમિયમ મગફળી પર ગુણવત્તા ચકાસણી",
           qc: "સ્વચ્છ અને સલામત પ્રોસેસિંગ"
         },
         p3: {
-          name: "જન્મોત્રી શીંગતેલ (૧૫ લીટર)",
-          shortName: "૧૫ લીટર - ફેમિલી કેન",
+          name: "જન્મોત્રી શીંગતેલ (૧૫ લીટર - ફેમિલી પેક)",
+          shortName: "૧૫ લીટર - ફેમિલી પેક",
           desc: [
             "જન્મોત્રી ૧૫ લીટર શીંગતેલ શુદ્ધતા અને આરોગ્યનું પ્રતીક છે, જે તમારા માટે કુદરતની શક્ય તેટલી નજીકનું તેલ લાવવા માટે અત્યંત કાળજીપૂર્વક તૈયાર કરવામાં આવ્યું છે.",
             "અમારું શીંગતેલ ઉચ્ચ ગુણવત્તાની મગફળીમાંથી બનાવવામાં આવે છે, જે તમારી વાનગીઓનો સ્વાદ વધારવા માટે અસલી સુગંધ આપે છે."
@@ -1247,18 +1247,19 @@ export const translations = {
           qc: "સ્વચ્છ અને સલામત પ્રોસેસિંગ"
         },
         p4: {
-          name: "જન્મોત્રી શીંગતેલ (૦૧ લીટર બોટલ)",
+          name: "જન્મોત્રી શીંગતેલ (૫૦૦ મિલી - મીની પેક)",
           shortName: "૫૦૦ મિલી - મીની પેક",
           desc: [
-            "જન્મોત્રી ૧ લીટર શીંગતેલ બોટલ શુદ્ધતા અને આરોગ્યનું પ્રતીક છે, જે તમારા માટે કુદરતની શક્ય તેટલી નજીકનું તેલ લાવવા માટે અત્યંત કાળજીપૂર્વક તૈયાર કરવામાં આવ્યું છે.",
-            "અમારું શીંગતેલ ઉચ્ચ ગુણવત્તાની મગફળીમાંથી બનાવવામાં આવે છે, જે તમારી વાનગીઓનો સ્વાદ વધારવા માટે અસલી સુગંધ આપે છે."
+            "જન્મોત્રી ૫૦૦ મિલી શીંગતેલ બોટલ શુદ્ધતા અને આરોગ્યનું પ્રતીક છે, જે તમારા માટે કુદરતની શક્ય તેટલી નજીકનું તેલ લાવવા માટે અત્યંત કાળજીપૂર્વક તૈયાર કરવામાં આવ્યું છે.",
+            "અમારું શીંગતેલ ઉચ્ચ ગુણવત્તાની મગફળીમાંથી બનાવવામાં આવે છે, જે તમારી વાનગીઓનો સ્વાદ વધારવા માટે અસલી સુગંધ આપે છે.",
+            // "અમારું શીંગતેલ ઉચ્ચ ગુણવત્તાની મગફળીમાંથી બનાવવામાં આવે છે, જે તમારી વાનગીઓનો સ્વાદ વધારવા માટે અસલી સુગંધ આપે છે."
           ],
           source: "સ્થાનિક સ્તરે મેળવેલી પ્રીમિયમ મગફળી પર ગુણવત્તા ચકાસણી",
           qc: "સ્વચ્છ અને સલામત પ્રોસેસિંગ"
         },
         p5: {
-          name: "જન્મોત્રી શીંગતેલ (૦૧ લીટર ટીન)",
-          shortName: "૧ લિટર હોમ પેક",
+          name: "જન્મોત્રી શીંગતેલ (૧ લીટર હોમ પેક)",
+          shortName: "૧ લીટર હોમ પેક",
           desc: [
             "જન્મોત્રી ૧ લીટર શીંગતેલ ટીન શુદ્ધતા અને આરોગ્યનું પ્રતીક છે, જે તમારા માટે કુદરતની શક્ય તેટલી નજીકનું તેલ લાવવા માટે અત્યંત કાળજીપૂર્વક તૈયાર કરવામાં આવ્યું છે.",
             "અમારું શીંગતેલ ઉચ્ચ ગુણવત્તાની મગફળીમાંથી બનાવવામાં આવે છે, જે તમારી વાનગીઓનો સ્વાદ વધારવા માટે અસલી સુગંધ આપે છે."
@@ -1843,12 +1844,12 @@ export const translations = {
             desc: "बहु-चरणीय सफाई। केवल सबसे स्वस्थ, प्रीमियम दानों को चुनने के लिए मूंगफली को पूरी तरह से साफ और वर्गीकृत किया जाता है।"
           },
           {
-            title: "पारंपरिक कोल्ड प्रेस्ड",
-            desc: "पारंपरिक लकड़ी की घानी। कम तापमान पर धीमे निष्कर्षण से प्राकृतिक पोषक तत्व और सुगंध पूरी तरह से सुरक्षित रहते हैं।"
+            title: "देशी धानी",
+            desc: "हमारा तेल कोल्ड प्रेस्ड या वुड प्रेस्ड नहीं है, बल्कि देशी धानी का इस्तेमाल करके शुद्ध तेल से बनाया जाता है।"
           },
           {
-            title: "निस्पंदन",
-            desc: "प्राकृतिक अवसादन। बिना रसायनों के शुद्ध सुनहरी स्पष्टता बनाए रखने के लिए सूती कपड़ों के फिल्टर का उपयोग करके तेल छाना जाता है।"
+            title: "फिल्ट्रेशन प्रक्रिया",
+            desc: "देसी धानी में तैयार किया गया प्रीमियम कैस्टर ऑयल, जिसे कॉटन के कपड़े से डबल-फिल्टर करके 100% शुद्ध और प्राकृतिक रखा गया है।"
           },
           {
             title: "पैकेजिंग",
@@ -1967,9 +1968,9 @@ export const translations = {
         guarantee: "जन्मोत्री शुद्धता की गारंटी",
         steps: [
           { title: "बीज चयन", desc: "जैविक खेतों से सीधे प्रीमियम सौराष्ट्र G20 मूंगफली प्राप्त करना।" },
-          { title: "शुद्धिकरण", desc: "छिलके और क्षतिग्रस्त बीजों को हटाने के लिए डबल सॉर्टिंग और वायु निस्पंदन।" },
-          { title: "पारंपरिक कोल्ड प्रेसिंग", desc: "पोषक तत्वों को बनाए रखने के लिए कम तापमान पर लकड़ी की घानी में धीरे-धीरे तेल निकालना।" },
-          { title: "निस्पंदन", desc: "सुनहरी स्पष्टता के लिए प्राकृतिक सूती कपड़ों का उपयोग करके पर्यावरण अनुकूल फिल्टरिंग।" },
+          { title: "शुद्धिकरण", desc: "छिलके और क्षतिग्रस्त बीजों को हटाने के लिए डबल सॉर्टिंग और वायु फिल्ट्रेशन प्रक्रिया।" },
+          { title: "देशी धानी", desc: "पोषक तत्वों को बनाए रखने के लिए कम तापमान पर लकड़ी की घानी में धीरे-धीरे तेल निकालना।" },
+          { title: "फिल्ट्रेशन प्रक्रिया", desc: "देसी धानी में तैयार किया गया प्रीमियम कैस्टर ऑयल, जिसे कॉटन के कपड़े से डबल-फिल्टर करके 100% शुद्ध और प्राकृतिक रखा गया है।" },
           { title: "गुणवत्ता जांच", desc: "एसिड वैल्यू, नमी और रसायन-मुक्त आश्वासन के लिए कठोर प्रयोगशाला परीक्षण।" },
           { title: "पैकेजिंग और डिलीवरी", desc: "लीक-प्रूफ टिन के डिब्बों में पैक करके सीधे आपके घर तक भेजना।" }
         ]

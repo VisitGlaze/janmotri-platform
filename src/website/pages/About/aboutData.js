@@ -35,14 +35,14 @@ export const aboutData = {
       },
       {
         step: "03",
-        title: "Expeller Machine",
-        desc: "Our oil is not cold pressed or wood pressed but is pure oil made by an expeller machine.",
+        title: "Deshi Dhani",
+        desc: "Our oil is not cold pressed or wood pressed but is pure oil made by an Deshi Dhani.",
         imageKey: "extraction"
       },
       {
         step: "04",
         title: "Filtration Process",
-        desc: "Double filtered quality assured castor oil produced from cotton cloth by expeller machine.",
+        desc: "Double filtered quality assured castor oil produced from cotton cloth by Deshi Dhani.",
         imageKey: "filtering"
       },
       {

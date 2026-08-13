@@ -90,7 +90,7 @@ const HeroGujarati = () => {
           </span>
 
           <h1 className="welcome-text">
-            જન્મોત્રી મગફળીનું <span className="highlight">તેલ</span>
+            G-20 મગફળીનું <span className="highlight">તેલ</span>
           </h1>
 
           <h2 className="hero-subheading_h2">૧૦૦% શુદ્ધ મગફળીનું તેલ</h2>
