@@ -108,7 +108,7 @@ const HeroEnglish = () => {
 
 
           <h1 className="welcome-text">
-            Janmotri Groundnut
+            G-20 Groundnut
             <span className="highlight">Oil</span>
           </h1>
 

@@ -130,10 +130,10 @@ export default function ProductMainSection({ product }) {
             {/* Price Row */}
             <div className="price-details-container">
               <span className="price-val-active">₹ {product.price}/-</span>
-              <span className="price-val-original">₹ {product.originalPrice}.00</span>
-              <span className="price-val-discount">
+              {/* <span className="price-val-original">₹ {product.originalPrice}.00</span> */}
+              {/* <span className="price-val-discount">
                 {product.discount.replace("OFF", t("common.off", "OFF"))}
-              </span>
+              </span> */}
             </div>
 
             {/* Stock status indicator */}
