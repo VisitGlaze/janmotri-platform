@@ -48,9 +48,9 @@ export default function ProductsGridSection() {
                 onClick={() => navigate(`/product/${product.id}`)}
               >
                 {/* Discount Badge */}
-                <div className="product-sale-badge">
+                {/* <div className="product-sale-badge">
                   {product.discount.replace("OFF", t("common.off", "OFF"))}
-                </div>
+                </div> */}
 
                 {/* Elevated Image Container */}
                 <div className="product-image-container-wrap">
@@ -68,7 +68,7 @@ export default function ProductsGridSection() {
 
                 {/* Price Display */}
                 <div className="product-grid-price-row">
-                  <span className="price-original">₹ {product.originalPrice}/-</span>
+                  {/* <span className="price-original">₹ {product.originalPrice}/-</span> */}
                   <span className="price-active">₹ {product.price}/-</span>
                 </div>
               </div>
