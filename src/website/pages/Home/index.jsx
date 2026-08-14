@@ -43,24 +43,24 @@ const Home = () => {
   }, [location]);
 
   // Accessibility profile fallback for entrance animations
-  const revealProps = prefersReducedMotion 
+  const revealProps = prefersReducedMotion
     ? {
-        initial: { opacity: 0 },
-        whileInView: { opacity: 1 },
-        viewport: { once: true, margin: "-10% 0px -10% 0px" },
-        transition: { duration: 0.65 }
-      }
+      initial: { opacity: 0 },
+      whileInView: { opacity: 1 },
+      viewport: { once: true, margin: "-10% 0px -10% 0px" },
+      transition: { duration: 0.65 }
+    }
     : {
-        initial: { opacity: 0, y: 45, scale: 0.97 },
-        whileInView: { opacity: 1, y: 0, scale: 1 },
-        viewport: { once: true, margin: "-10% 0px -10% 0px" },
-        transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] }
-      };
+      initial: { opacity: 0, y: 45, scale: 0.97 },
+      whileInView: { opacity: 1, y: 0, scale: 1 },
+      viewport: { once: true, margin: "-10% 0px -10% 0px" },
+      transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] }
+    };
 
   return (
     <>
       <Navbar />
-      
+
       {/* Hero Section */}
       <HeroSection />
 
